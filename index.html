@@ -1,0 +1,1885 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SDB Community Care Event @ The Zoo · 4 of 5 september 2026</title>
+<meta name="description" content="SDB viert 50 jaar. Op 4 of 5 september organiseren we een bijzondere dag in Ouwehands Dierenpark — kies de dag die jou het beste uitkomt." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" />
+<link rel="stylesheet" href="colors_and_type.css" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  ::selection { background: #F58220; color: #fff; }
+
+  :root {
+    --event-green: #2F6B3A;        /* safari / park green */
+    --event-green-deep: #1E4A26;
+    --event-green-soft: #E4F0E3;
+    --event-sun: #F5B628;           /* warm sunny accent */
+    --event-sand: #FBF5E9;          /* warm cream for surfaces */
+    --event-sand-deep: #F1E7D0;
+  }
+
+  body {
+    background: var(--sdb-paper);
+    overflow-x: hidden;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  @media (max-width: 640px) { .wrap { padding: 0 20px; } }
+
+  /* ============ NAV ============ */
+  .nav-outer {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251, 245, 233, 0.85);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    color: var(--sdb-navy);
+    border-bottom: 1px solid rgba(217,106,11,0.12);
+  }
+  .nav-links { color: var(--sdb-navy) !important; }
+  .nav-links a { color: #5A4635 !important; }
+  .nav-links a:hover { color: var(--sdb-orange-deep) !important; }
+  .nav-logo { color: var(--sdb-navy); }
+  .nav-logo small { color: rgba(0,58,80,0.55) !important; }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; font-size: 18px;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .nav-logo .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--sdb-orange);
+    box-shadow: 0 0 0 4px rgba(245,130,32,0.18);
+  }
+  .nav-logo small {
+    display: block; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+  }
+  .nav-links {
+    display: flex; gap: 28px;
+    font-weight: 400; font-size: 15px;
+    color: #D6E3E9;
+  }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 20px;
+    background: var(--sdb-orange);
+    color: #fff; border-radius: var(--r-pill);
+    font-weight: 700; font-size: 14px;
+    transition: background .15s ease, transform .15s ease;
+  }
+  .nav-cta:hover { background: var(--sdb-orange-deep); }
+  .nav-cta:active { transform: translateY(1px); }
+  @media (max-width: 820px) { .nav-links { display: none; } }
+
+  /* ============ HERO (warm, community + zoo) ============ */
+  .hero {
+    position: relative;
+    isolation: isolate;
+    background:
+      radial-gradient(ellipse 900px 620px at 85% -10%, #FFE39A 0%, rgba(255,227,154,0) 60%),
+      radial-gradient(ellipse 1100px 700px at 10% 110%, #FFB877 0%, rgba(255,184,119,0) 58%),
+      radial-gradient(ellipse 640px 520px at 50% 55%, rgba(255,238,210,0.7), transparent 72%),
+      linear-gradient(180deg, #FFF4DC 0%, #FFE0B8 48%, #FFC98D 100%);
+    color: var(--sdb-navy);
+    padding: 72px 0 260px;
+    overflow: hidden;
+  }
+  /* Golden sun disc */
+  .hero .sun {
+    position: absolute; z-index: 0;
+    top: 70px; right: 10%;
+    width: 180px; height: 180px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #FFEDB2 0%, #F5B628 55%, #E08B1A 100%);
+    box-shadow: 0 0 80px 20px rgba(245,182,40,0.35);
+    opacity: 0.85;
+    pointer-events: none;
+  }
+  @media (max-width: 960px) {
+    .hero .sun { top: 30px; right: 5%; width: 120px; height: 120px; }
+  }
+  /* Distant rolling hills */
+  .hero .hills {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 0;
+    width: 100%; height: 380px;
+    pointer-events: none;
+  }
+  /* Stylized canopy strip */
+  .hero .scene {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
+    width: 100%; height: 340px;
+    pointer-events: none;
+  }
+  /* Warm drifting glow orbs */
+  .hero .glow {
+    position: absolute; z-index: 0; pointer-events:none;
+    border-radius: 50%; filter: blur(18px);
+    animation: glowDrift 14s ease-in-out infinite;
+  }
+  .hero .glow.g1 {
+    top: 18%; left: 14%;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(245,182,40,0.55), rgba(245,182,40,0) 70%);
+  }
+  .hero .glow.g2 {
+    top: 38%; left: 46%;
+    width: 240px; height: 240px;
+    background: radial-gradient(circle, rgba(217,106,11,0.35), rgba(217,106,11,0) 70%);
+    animation-delay: -5s;
+  }
+  .hero .glow.g3 {
+    top: 8%; left: 62%;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(255,220,160,0.6), rgba(255,220,160,0) 70%);
+    animation-delay: -9s;
+  }
+  @keyframes glowDrift {
+    0%,100% { transform: translate(0,0) scale(1); }
+    50%     { transform: translate(18px,-14px) scale(1.08); }
+  }
+  /* Connecting ribbon */
+  .hero .ribbon {
+    position: absolute; left: 0; right: 0; top: 20%; z-index: 0;
+    width: 100%; height: 280px;
+    pointer-events: none;
+  }
+  /* Tiny floating leaves */
+  .hero .leaf {
+    position: absolute; z-index: 0; pointer-events: none;
+    color: #8BA86B; opacity: 0.55;
+    animation: floatLeaf 9s ease-in-out infinite;
+  }
+  .hero .leaf.l1 { top: 18%; left: 8%; animation-delay: 0s; }
+  .hero .leaf.l2 { top: 32%; left: 52%; animation-delay: -3s; color: #D96A0B; opacity: 0.45; }
+  .hero .leaf.l3 { top: 12%; left: 72%; animation-delay: -5s; color: #E5A82A; opacity: 0.5; }
+  .hero .leaf.l4 { top: 46%; left: 22%; animation-delay: -2s; color: #8BA86B; opacity: 0.35; }
+  @keyframes floatLeaf {
+    0%,100% { transform: translate(0,0) rotate(0deg); }
+    50%     { transform: translate(8px,-10px) rotate(12deg); }
+  }
+  /* soft organic blob top-right */
+  .hero::after {
+    content:""; position:absolute; z-index:0;
+    top: -120px; right: -120px;
+    width: 520px; height: 520px;
+    border-radius: 48% 52% 62% 38% / 44% 56% 44% 56%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.55), transparent 65%);
+    pointer-events:none;
+    animation: blob 18s ease-in-out infinite;
+  }
+  @keyframes blob {
+    0%,100% { border-radius: 48% 52% 62% 38% / 44% 56% 44% 56%; }
+    50% { border-radius: 58% 42% 46% 54% / 52% 40% 60% 48%; }
+  }
+  .hero-greeting {
+    display: block;
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--sdb-orange-deep);
+    transform: rotate(-2deg);
+    margin-bottom: 8px;
+    margin-left: 2px;
+    line-height: 1;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 64px;
+    align-items: center;
+  }
+  @media (max-width: 960px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 8px 8px 8px;
+    border-radius: var(--r-pill);
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(217,106,11,0.2);
+    font-weight: 700; font-size: 12px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--sdb-navy);
+    margin-bottom: 28px;
+    box-shadow: 0 2px 10px rgba(217,106,11,0.08);
+  }
+  .hero-eyebrow .jubileum {
+    background: var(--sdb-orange);
+    color: #fff; font-weight: 700;
+    padding: 3px 9px; border-radius: 999px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  .hero h1 {
+    font-weight: 700;
+    font-size: clamp(42px, 5.8vw, 80px);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+  }
+  .hero h1 .acc { color: var(--sdb-orange); }
+  .hero h1 .zoo {
+    position: relative; display: inline-block;
+    color: var(--sdb-orange-deep);
+    font-style: italic;
+  }
+  .hero h1 .zoo::after {
+    content: ""; position: absolute;
+    left: -2%; right: -2%; bottom: -2px; height: 10px;
+    background: var(--sdb-orange);
+    border-radius: 999px;
+    opacity: 0.28;
+  }
+  .hero h1 { color: var(--sdb-navy); }
+  .hero-sub {
+    margin-top: 28px;
+    font-size: clamp(17px, 1.35vw, 20px);
+    line-height: 1.6;
+    color: #5A4635;
+    max-width: 560px;
+  }
+  .hero-ctas {
+    margin-top: 36px;
+    display: flex; gap: 12px; flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 15px 26px;
+    border-radius: var(--r-pill);
+    font-weight: 700; font-size: 15px;
+    cursor: pointer; border: 0;
+    transition: transform .15s ease, background .15s ease;
+    font-family: var(--font-sans);
+  }
+  .btn-primary { background: var(--sdb-orange); color: #fff; }
+  .btn-primary:hover { background: var(--sdb-orange-deep); }
+  .btn-primary:active { transform: translateY(1px); }
+  .btn-ghost {
+    background: rgba(255,255,255,0.6); color: var(--sdb-navy);
+    border: 1.5px solid rgba(0,58,80,0.2);
+  }
+  .btn-ghost:hover { border-color: var(--sdb-navy); background: #fff; }
+  .hero .btn-ghost { backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+  .btn-dark { background: var(--sdb-navy); color: #fff; }
+  .btn-dark:hover { background: var(--sdb-navy-2); }
+
+  .hero-meta {
+    margin-top: 36px;
+    display: flex; gap: 10px; flex-wrap: wrap;
+    font-size: 13.5px; font-weight: 700;
+    color: var(--sdb-navy);
+  }
+  .hero-meta span {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 15px;
+    background: rgba(255,255,255,0.75);
+    border: 1px solid rgba(217,106,11,0.18);
+    border-radius: var(--r-pill);
+    box-shadow: 0 2px 8px rgba(217,106,11,0.06);
+  }
+  .hero-meta svg { flex: none; color: var(--sdb-orange-deep); }
+
+  /* Hero card */
+  .save-card {
+    position: relative;
+    background: #fff;
+    color: var(--sdb-ink);
+    border-radius: var(--r-xl);
+    padding: 28px 28px 26px;
+    box-shadow: 0 30px 60px rgba(100,40,10,0.18), 0 8px 20px rgba(100,40,10,0.08);
+    transform: rotate(-1.5deg);
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+  .save-card::before {
+    content: ""; position: absolute;
+    top: -16px; left: 36px;
+    width: 96px; height: 32px;
+    background: rgba(245, 130, 32, 0.35);
+    border-radius: 4px;
+    transform: rotate(-4deg);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+  .save-card-head {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--event-green);
+    margin-bottom: 18px;
+  }
+  .save-card-head .pill {
+    background: var(--event-green); color: #fff;
+    padding: 4px 10px; border-radius: 999px;
+    letter-spacing: 0.08em;
+  }
+  .save-date {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 14px; align-items: center;
+    padding: 20px 0;
+    border-top: 1.5px dashed var(--event-sand-deep);
+    border-bottom: 1.5px dashed var(--event-sand-deep);
+  }
+  .save-date .d {
+    text-align: center;
+  }
+  .save-date .d .day {
+    font-size: 14px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--fg-2);
+  }
+  .save-date .d .n {
+    font-size: 64px; font-weight: 700;
+    line-height: 1; letter-spacing: -0.04em;
+    color: var(--sdb-navy);
+    margin: 4px 0 2px;
+  }
+  .save-date .d .m {
+    font-size: 15px; font-weight: 700;
+    color: var(--sdb-navy);
+  }
+  .save-date .amp {
+    font-size: 22px; font-weight: 700;
+    color: var(--sdb-orange);
+    font-style: italic;
+    letter-spacing: 0.02em;
+    align-self: center;
+    text-transform: lowercase;
+  }
+  .save-foot {
+    margin-top: 20px;
+    display: flex; gap: 10px; align-items: center;
+    font-size: 14px; color: var(--fg-2);
+    font-weight: 700;
+  }
+  .save-foot svg { color: var(--sdb-orange); flex: none; }
+  .save-hint {
+    margin-top: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--sdb-orange-deep);
+    text-align: center;
+    letter-spacing: 0.01em;
+  }
+  .save-scribble {
+    position: absolute; top: 12px; right: 18px;
+    font-size: 22px; color: var(--sdb-orange);
+    font-weight: 700; font-style: italic;
+    transform: rotate(8deg);
+  }
+
+  /* ============ WELCOME / INTRO BAND ============ */
+  .intro-band {
+    background: #fff;
+    padding: 80px 0;
+    border-bottom: 1px solid var(--sdb-line);
+  }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 72px;
+    align-items: start;
+  }
+  @media (max-width: 900px) { .intro-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .eyebrow {
+    font-weight: 700; font-size: 13px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--sdb-orange); margin-bottom: 16px;
+  }
+  .intro-grid h2 {
+    font-weight: 700; font-size: clamp(28px, 3vw, 42px);
+    line-height: 1.1; letter-spacing: -0.015em;
+  }
+  .intro-grid h2 .hl { color: var(--sdb-orange); }
+  .intro-grid p {
+    font-size: 17px; line-height: 1.65; color: var(--fg-2);
+  }
+  .intro-grid p + p { margin-top: 14px; }
+
+  /* ============ AUDIENCE / DOELGROEP ============ */
+  .audience {
+    padding: 120px 0 100px;
+    background: var(--sdb-paper);
+  }
+  .aud-head {
+    max-width: 780px;
+    margin-bottom: 40px;
+  }
+  .aud-head h2 {
+    font-weight: 700; font-size: clamp(32px, 3.4vw, 48px);
+    line-height: 1.08; letter-spacing: -0.015em;
+    margin-bottom: 16px;
+  }
+  .aud-head p {
+    font-size: 17px; line-height: 1.6; color: var(--fg-2);
+    max-width: 60ch;
+  }
+
+  .aud-tabs {
+    display: flex; gap: 8px;
+    padding: 6px;
+    background: #fff;
+    border: 1px solid var(--sdb-line);
+    border-radius: var(--r-pill);
+    margin-bottom: 32px;
+    width: fit-content;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .aud-tabs::-webkit-scrollbar { display: none; }
+  .aud-tab {
+    padding: 10px 20px;
+    border-radius: var(--r-pill);
+    font-weight: 700; font-size: 14.5px;
+    cursor: pointer; background: transparent;
+    border: 0; color: var(--fg-2);
+    font-family: var(--font-sans);
+    white-space: nowrap;
+    transition: background .15s ease, color .15s ease;
+  }
+  .aud-tab:hover { color: var(--sdb-ink); }
+  .aud-tab.active {
+    background: var(--sdb-navy); color: #fff;
+  }
+
+  .aud-panel {
+    display: none;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: stretch;
+  }
+  .aud-panel.active { display: grid; }
+  @media (max-width: 900px) { .aud-panel.active { grid-template-columns: 1fr; gap: 32px; } }
+
+  .aud-body {
+    background: #fff;
+    border: 1px solid var(--sdb-line);
+    border-radius: var(--r-xl);
+    padding: 40px 40px 36px;
+    display: flex; flex-direction: column;
+  }
+  @media (max-width: 640px) { .aud-body { padding: 28px; } }
+
+  .aud-body .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    align-self: flex-start;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 6px 12px; border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .aud-body h3 {
+    font-weight: 700; font-size: clamp(24px, 2.2vw, 32px);
+    line-height: 1.15; letter-spacing: -0.01em;
+    margin-bottom: 14px;
+  }
+  .aud-body .lede {
+    font-size: 17px; line-height: 1.6; color: var(--fg-2);
+    margin-bottom: 24px;
+  }
+  .aud-callout {
+    background: var(--sdb-orange-soft);
+    border-radius: var(--r-md);
+    padding: 20px 22px;
+    margin-top: auto;
+    border-left: 4px solid var(--sdb-orange);
+  }
+  .aud-callout b {
+    display: block;
+    font-weight: 700; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--sdb-orange-deep);
+    margin-bottom: 6px;
+  }
+  .aud-callout p {
+    font-size: 16px; line-height: 1.5;
+    color: var(--sdb-ink); font-weight: 700;
+    font-style: italic;
+  }
+
+  .aud-side {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .aud-quote {
+    background: var(--sdb-navy);
+    color: #fff;
+    border-radius: var(--r-xl);
+    padding: 32px;
+    flex: 1;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .aud-quote::before {
+    content: ""; position: absolute;
+    top: -80px; right: -80px;
+    width: 240px; height: 240px;
+    background: radial-gradient(circle, rgba(245,182,40,0.25), transparent 65%);
+  }
+  .aud-quote .who {
+    position: relative; z-index: 1;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--event-sun);
+    margin-bottom: 14px;
+  }
+  .aud-quote .msg {
+    position: relative; z-index: 1;
+    font-size: 18px; line-height: 1.5;
+    color: #fff;
+  }
+  .aud-quote .sign {
+    position: relative; z-index: 1;
+    margin-top: 18px;
+    font-size: 24px; font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--sdb-orange);
+    font-style: italic;
+  }
+
+  /* per-audience accent colors */
+  .aud-panel[data-aud="ghz"] .aud-body .badge { background: var(--sdb-orange-soft); color: var(--sdb-orange-deep); }
+  .aud-panel[data-aud="jeugd"] .aud-body .badge { background: var(--sdb-teal-soft); color: var(--sdb-teal); }
+  .aud-panel[data-aud="vvt"] .aud-body .badge { background: var(--sdb-sky-soft); color: var(--sdb-blue-deep); }
+
+  /* ============ PROGRAMMA ============ */
+  .programma {
+    background: var(--sdb-navy);
+    color: #fff;
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .programma::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 600px 500px at 0% 0%, rgba(47,107,58,0.35), transparent 55%),
+      radial-gradient(ellipse 600px 500px at 100% 100%, rgba(245,130,32,0.2), transparent 55%);
+  }
+  .programma .wrap { position: relative; z-index: 1; }
+  .prog-head { max-width: 680px; margin-bottom: 56px; }
+  .prog-head .eyebrow { color: var(--event-sun); }
+  .prog-head h2 {
+    font-weight: 700; font-size: clamp(32px, 3.4vw, 48px);
+    line-height: 1.08; letter-spacing: -0.015em;
+    margin-bottom: 18px;
+  }
+  .prog-head h2 .hl { color: var(--sdb-orange); }
+  .prog-head p {
+    font-size: 17px; line-height: 1.6; color: #BFD4DB;
+    max-width: 58ch;
+  }
+
+  .prog-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  @media (max-width: 900px) { .prog-grid { grid-template-columns: 1fr; } }
+
+  .prog-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--r-lg);
+    padding: 28px;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .prog-card:hover {
+    background: rgba(255,255,255,0.07);
+    transform: translateY(-2px);
+  }
+  .prog-card .icon {
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    display: grid; place-items: center;
+    margin-bottom: 18px;
+  }
+  .prog-card:nth-child(1) .icon { background: rgba(245,130,32,0.15); color: var(--sdb-orange); }
+  .prog-card:nth-child(2) .icon { background: rgba(30,176,161,0.15); color: var(--sdb-teal); }
+  .prog-card:nth-child(3) .icon { background: rgba(245,182,40,0.18); color: var(--event-sun); }
+  .prog-card h3 {
+    font-weight: 700; font-size: 22px;
+    letter-spacing: -0.005em;
+    margin-bottom: 10px;
+  }
+  .prog-card p {
+    font-size: 15.5px; line-height: 1.55; color: #B8CFD6;
+  }
+  .prog-card ul {
+    margin-top: 14px;
+    list-style: none;
+    display: grid; gap: 8px;
+  }
+  .prog-card ul li {
+    font-size: 14.5px; line-height: 1.45; color: #D6E3E9;
+    padding-left: 22px; position: relative;
+  }
+  .prog-card ul li::before {
+    content: ""; position: absolute;
+    left: 0; top: 8px;
+    width: 10px; height: 2px;
+    background: var(--sdb-orange);
+    border-radius: 2px;
+  }
+
+  .prog-note {
+    margin-top: 36px;
+    padding: 20px 24px;
+    background: rgba(245,182,40,0.08);
+    border: 1px solid rgba(245,182,40,0.25);
+    border-radius: var(--r-md);
+    font-size: 14.5px; color: #F5EFDA;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .prog-note svg { color: var(--event-sun); flex: none; }
+
+  /* ============ WAAROM ============ */
+  .why {
+    padding: 120px 0;
+    background: #fff;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+  @media (max-width: 900px) { .why-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .why-copy h2 {
+    font-weight: 700; font-size: clamp(32px, 3.4vw, 48px);
+    line-height: 1.08; letter-spacing: -0.015em;
+    margin-bottom: 20px;
+  }
+  .why-copy h2 .hl { color: var(--sdb-orange); }
+  .why-copy p {
+    font-size: 17px; line-height: 1.65; color: var(--fg-2);
+  }
+  .why-copy p + p { margin-top: 14px; }
+  .jubilee-stamp {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    max-width: 420px;
+    margin: 0 auto;
+    display: grid; place-items: center;
+  }
+  .jubilee-stamp .ring {
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(245,130,32,0.18), transparent 60%),
+      conic-gradient(from 180deg, var(--sdb-orange) 0deg, var(--event-sun) 120deg, var(--sdb-teal) 240deg, var(--sdb-orange) 360deg);
+    opacity: 0.2;
+    animation: spin 40s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .jubilee-stamp .inner {
+    position: relative;
+    width: 80%; height: 80%;
+    border-radius: 50%;
+    background: var(--event-sand);
+    display: grid; place-items: center;
+    box-shadow: inset 0 0 0 6px #fff, 0 20px 50px rgba(0,58,80,0.15);
+  }
+  .jubilee-stamp .inner .year-big {
+    font-size: clamp(72px, 10vw, 128px);
+    font-weight: 700;
+    line-height: 1; letter-spacing: -0.05em;
+    color: var(--sdb-navy);
+  }
+  .jubilee-stamp .inner .lab {
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--sdb-orange);
+    margin-top: 8px;
+  }
+  .jubilee-stamp .inner .jr {
+    font-size: 16px; font-weight: 700;
+    color: var(--sdb-navy); margin-top: 4px;
+  }
+  /* curved text around ring */
+  .jubilee-stamp svg.curved {
+    position: absolute; inset: 0;
+    animation: spin 60s linear infinite reverse;
+  }
+  .jubilee-stamp svg.curved text {
+    fill: var(--sdb-navy);
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+  }
+
+  /* ============ PRACTISCH ============ */
+  .practical {
+    padding: 100px 0;
+    background: var(--sdb-paper);
+  }
+  .practical-head { margin-bottom: 40px; max-width: 640px; }
+  .practical-head h2 {
+    font-weight: 700; font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.1; letter-spacing: -0.015em;
+  }
+  .practical-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  }
+  @media (max-width: 900px) { .practical-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 540px) { .practical-grid { grid-template-columns: 1fr; } }
+  .prac-card {
+    background: #fff;
+    border: 1px solid var(--sdb-line);
+    border-radius: var(--r-lg);
+    padding: 26px 24px;
+  }
+  .prac-card .ic {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: grid; place-items: center;
+    margin-bottom: 16px;
+  }
+  .prac-card:nth-child(1) .ic { background: var(--sdb-orange-soft); color: var(--sdb-orange); }
+  .prac-card:nth-child(2) .ic { background: var(--sdb-teal-soft); color: var(--sdb-teal); }
+  .prac-card:nth-child(3) .ic { background: var(--sdb-sky-soft); color: var(--sdb-blue-deep); }
+  .prac-card:nth-child(4) .ic { background: var(--event-green-soft); color: var(--event-green); }
+  .prac-card h4 {
+    font-weight: 700; font-size: 13px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--fg-2); margin-bottom: 6px;
+  }
+  .prac-card .val {
+    font-weight: 700; font-size: 19px;
+    letter-spacing: -0.005em;
+    color: var(--sdb-ink);
+    line-height: 1.3;
+  }
+  .prac-card .sub {
+    font-size: 14px; color: var(--fg-2);
+    margin-top: 4px; line-height: 1.4;
+  }
+
+  /* ============ FAQ TEASER ============ */
+  .faq-teaser {
+    padding: 120px 0;
+    background: var(--bg-panel);
+  }
+  .faq-teaser-head {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    gap: 40px; margin-bottom: 40px; flex-wrap: wrap;
+  }
+  .faq-teaser-head h2 {
+    font-weight: 700; font-size: clamp(28px, 3vw, 42px);
+    line-height: 1.1; letter-spacing: -0.015em;
+  }
+  .faq-teaser-head h2 .hl { color: var(--sdb-orange); }
+  .faq-teaser-head a {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-weight: 700; font-size: 14.5px;
+    color: var(--sdb-navy);
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--sdb-orange);
+  }
+  .faq-list {
+    display: grid; gap: 12px;
+    max-width: 920px;
+  }
+  .faq-item {
+    background: #fff; border: 1px solid var(--sdb-line);
+    border-radius: var(--r-md);
+    overflow: hidden;
+  }
+  .faq-item summary {
+    list-style: none; cursor: pointer;
+    padding: 22px 26px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+    font-weight: 700; font-size: 17px;
+    letter-spacing: -0.005em;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary .chev {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--sdb-orange-soft); color: var(--sdb-orange);
+    display: grid; place-items: center; flex: none;
+    transition: transform .2s ease;
+  }
+  .faq-item[open] summary .chev { transform: rotate(45deg); }
+  .faq-item .answer {
+    padding: 0 26px 24px;
+    font-size: 15.5px; line-height: 1.65; color: var(--fg-2);
+  }
+
+  /* ============ CTA / REGISTER ============ */
+  .register {
+    padding: 100px 0 120px;
+  }
+  .register-card {
+    background:
+      radial-gradient(ellipse at 110% -10%, rgba(30,176,161,0.45), transparent 55%),
+      radial-gradient(ellipse at -10% 110%, rgba(245,130,32,0.35), transparent 55%),
+      linear-gradient(135deg, #004A66 0%, var(--sdb-navy) 100%);
+    color: #fff;
+    border-radius: var(--r-xl);
+    padding: 72px 64px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 56px; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  @media (max-width: 900px) {
+    .register-card { grid-template-columns: 1fr; padding: 48px 32px; gap: 32px; }
+  }
+  .register-card h2 {
+    font-weight: 700; font-size: clamp(30px, 3.2vw, 48px);
+    line-height: 1.05; letter-spacing: -0.02em;
+  }
+  .register-card h2 .acc { color: var(--sdb-orange); }
+  .register-card h2 .sun { color: var(--event-sun); font-style: italic; }
+  .register-card .lede {
+    margin-top: 18px;
+    font-size: 17px; line-height: 1.55;
+    color: #BFD4DB; max-width: 44ch;
+  }
+  .register-steps {
+    margin-top: 28px;
+    display: grid; gap: 12px;
+  }
+  .register-steps li {
+    display: flex; gap: 14px; align-items: flex-start;
+    list-style: none;
+    font-size: 15.5px; color: #D9E6EB;
+  }
+  .register-steps li span.n {
+    flex: none;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: rgba(245,130,32,0.2);
+    color: var(--sdb-orange);
+    display: grid; place-items: center;
+    font-weight: 700; font-size: 13px;
+    margin-top: 1px;
+  }
+  .register-form {
+    background: #fff;
+    border-radius: var(--r-lg);
+    padding: 32px;
+    color: var(--sdb-ink);
+    box-shadow: var(--shadow-lg);
+  }
+  .register-form h3 {
+    font-weight: 700; font-size: 22px;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .register-form .sub {
+    font-size: 14.5px; color: var(--fg-2);
+    margin-bottom: 22px;
+  }
+  .rf-group { margin-bottom: 14px; }
+  .rf-group label {
+    display: block;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+    color: var(--sdb-ink);
+  }
+  .rf-group input, .rf-group select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--sdb-line);
+    border-radius: var(--r-sm);
+    background: #fff;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--sdb-ink);
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .rf-group input:focus, .rf-group select:focus {
+    outline: none;
+    border-color: var(--sdb-orange);
+    box-shadow: 0 0 0 3px rgba(245,130,32,0.15);
+  }
+  .rf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 540px) { .rf-row { grid-template-columns: 1fr; } }
+  .rf-submit {
+    width: 100%;
+    margin-top: 8px;
+    padding: 14px 18px;
+    background: var(--sdb-orange);
+    color: #fff;
+    border: 0;
+    border-radius: var(--r-pill);
+    font-weight: 700; font-size: 15px;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    display: inline-flex; justify-content: center; align-items: center; gap: 8px;
+    transition: background .15s ease, transform .15s ease;
+  }
+  .rf-submit:hover { background: var(--sdb-orange-deep); }
+  .rf-submit:active { transform: translateY(1px); }
+  .rf-embed-note {
+    margin-top: 14px;
+    font-size: 12px; color: var(--fg-2);
+    text-align: center;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--sdb-navy-2);
+    color: #B8CCD4;
+    padding: 64px 0 32px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .foot-grid {
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  @media (max-width: 900px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 540px) { .foot-grid { grid-template-columns: 1fr; } }
+  .foot-brand .logo {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; color: #fff; font-size: 20px;
+    margin-bottom: 14px;
+  }
+  .foot-brand .logo .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--sdb-orange);
+  }
+  .foot-brand .logo .cares { color: var(--sdb-orange); }
+  .foot-brand p { font-size: 14px; line-height: 1.6; max-width: 38ch; color: #8BA5B0; }
+  .foot-col h5 {
+    color: #fff; font-weight: 700; font-size: 13px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .foot-col a, .foot-col span {
+    display: block; font-size: 14px; line-height: 2;
+    color: #A0B6BF;
+  }
+  .foot-col a:hover { color: #fff; }
+  .foot-bot {
+    padding-top: 24px;
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    font-size: 13px; color: #6A8591;
+  }
+  .foot-bot a:hover { color: #fff; }
+
+  .ic { width: 20px; height: 20px; stroke-width: 2; }
+
+  /* scroll-reveal */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- ============== NAV ============== -->
+<div class="nav-outer">
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-logo" href="#top" aria-label="SDB Community Care Event">
+        <span class="dot" aria-hidden="true"></span>
+        <span>
+          <b>SDB.</b> Community Care Event
+          <small>4 of 5 sept · Ouwehands Dierenpark</small>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="#programma">Programma</a>
+        <a href="#voor-wie">Voor wie</a>
+        <a href="#praktisch">Praktisch</a>
+        <a href="faq.html">Veelgestelde vragen</a>
+      </div>
+      <a class="nav-cta" href="#aanmelden">
+        Aanmelden
+        <svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </a>
+    </nav>
+  </div>
+</div>
+
+<!-- ============== HERO ============== -->
+<section class="hero" id="top">
+  <!-- Atmosphere: golden sun disc -->
+  <div class="sun" aria-hidden="true"></div>
+
+  <!-- Soft glow orbs (drifting light) -->
+  <span class="glow g1" aria-hidden="true"></span>
+  <span class="glow g2" aria-hidden="true"></span>
+  <span class="glow g3" aria-hidden="true"></span>
+
+  <!-- Connecting ribbon arc (abstract "coming together") -->
+  <svg class="ribbon" viewBox="0 0 1440 280" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="ribbonGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#F58220" stop-opacity="0"/>
+        <stop offset="40%" stop-color="#F58220" stop-opacity="0.35"/>
+        <stop offset="60%" stop-color="#F5B628" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#F5B628" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path d="M -50 180 C 260 60, 520 260, 820 140 S 1280 40, 1520 160"
+          stroke="url(#ribbonGrad)" stroke-width="28" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <path d="M -50 210 C 280 110, 560 290, 860 180 S 1300 90, 1520 200"
+          stroke="url(#ribbonGrad)" stroke-width="14" fill="none" stroke-linecap="round" opacity="0.5"/>
+  </svg>
+
+  <!-- Floating organic "leaves" (abstract) -->
+  <svg class="leaf l1" width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7 6 5 11 7 16c1 2 3 4 5 6 2-2 4-4 5-6 2-5 0-10-5-14z"/></svg>
+  <svg class="leaf l2" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7 6 5 11 7 16c1 2 3 4 5 6 2-2 4-4 5-6 2-5 0-10-5-14z"/></svg>
+  <svg class="leaf l3" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7 6 5 11 7 16c1 2 3 4 5 6 2-2 4-4 5-6 2-5 0-10-5-14z"/></svg>
+  <svg class="leaf l4" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7 6 5 11 7 16c1 2 3 4 5 6 2-2 4-4 5-6 2-5 0-10-5-14z"/></svg>
+
+  <!-- Distant rolling hills (softer, farthest back) -->
+  <svg class="hills" viewBox="0 0 1440 360" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="hillA" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#F5B628" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#D96A0B" stop-opacity="0.55"/>
+      </linearGradient>
+      <linearGradient id="hillB" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#D96A0B" stop-opacity="0.55"/>
+        <stop offset="100%" stop-color="#7A3F14" stop-opacity="0.75"/>
+      </linearGradient>
+      <linearGradient id="hillC" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#003A50" stop-opacity="0.55"/>
+        <stop offset="100%" stop-color="#00293A" stop-opacity="0.85"/>
+      </linearGradient>
+    </defs>
+    <!-- far back: warm wash -->
+    <path fill="url(#hillA)" d="M0 160 C 220 80, 420 140, 640 120 C 880 98, 1060 170, 1260 140 C 1360 126, 1420 150, 1440 145 L1440 360 L0 360 Z"/>
+    <!-- mid: deeper warm -->
+    <path fill="url(#hillB)" d="M0 230 C 180 160, 360 210, 580 200 C 820 188, 980 240, 1180 220 C 1320 206, 1400 230, 1440 225 L1440 360 L0 360 Z"/>
+    <!-- near: navy anchor -->
+    <path fill="url(#hillC)" d="M0 300 C 160 260, 320 290, 520 282 C 760 272, 920 310, 1120 298 C 1290 286, 1380 312, 1440 308 L1440 360 L0 360 Z"/>
+  </svg>
+
+  <!-- Subtle zoo-silhouette strip (animals as distant shadows in warm light) -->
+  <svg class="scene" viewBox="0 0 1440 340" preserveAspectRatio="xMidYEnd slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="animalShade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#4A2414" stop-opacity="0.55"/>
+        <stop offset="100%" stop-color="#00293A" stop-opacity="0.72"/>
+      </linearGradient>
+      <linearGradient id="hillFar" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#C46A10" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#8C3F10" stop-opacity="0.55"/>
+      </linearGradient>
+    </defs>
+
+    <g transform="translate(0 80)">
+
+    <!-- Far back soft dune shape -->
+    <path fill="url(#hillFar)"
+          d="M0 200
+             C 160 170, 340 180, 520 170
+             C 720 158, 880 190, 1080 180
+             C 1240 172, 1360 195, 1440 192
+             L1440 260 L0 260 Z"/>
+
+    <g fill="url(#animalShade)">
+      <!-- ============ LEFT: BAMBOO GROVE #1 ============ -->
+      <g transform="translate(60 50)">
+        <rect x="0" y="10" width="3" height="196"/>
+        <rect x="14" y="-2" width="3" height="208"/>
+        <rect x="30" y="16" width="3" height="190"/>
+        <rect x="46" y="4" width="3" height="202"/>
+        <!-- nodes -->
+        <rect x="-1" y="50" width="5" height="2"/>
+        <rect x="-1" y="100" width="5" height="2"/>
+        <rect x="-1" y="150" width="5" height="2"/>
+        <rect x="13" y="40" width="5" height="2"/>
+        <rect x="13" y="90" width="5" height="2"/>
+        <rect x="13" y="140" width="5" height="2"/>
+        <rect x="29" y="60" width="5" height="2"/>
+        <rect x="29" y="120" width="5" height="2"/>
+        <rect x="45" y="50" width="5" height="2"/>
+        <rect x="45" y="110" width="5" height="2"/>
+        <!-- top cluster -->
+        <g transform="translate(14 -6)">
+          <path d="M0 0 Q 14 -10, 22 -20 Q 12 -6, 2 2 Z"/>
+          <path d="M0 0 Q 16 -4, 26 -6 Q 14 2, 2 4 Z"/>
+          <path d="M2 2 Q 16 6, 24 14 Q 10 8, 0 4 Z"/>
+          <path d="M0 0 Q -12 -8, -20 -18 Q -8 -4, 2 2 Z"/>
+          <path d="M0 2 Q -14 -2, -22 -4 Q -10 4, 2 4 Z"/>
+          <path d="M4 0 Q 18 -14, 22 -26 Q 10 -10, 4 2 Z"/>
+          <path d="M-2 0 Q -14 -12, -18 -24 Q -8 -8, 0 2 Z"/>
+        </g>
+        <g transform="translate(15 38)">
+          <path d="M0 0 Q 14 -2, 22 -8 Q 10 4, 2 4 Z"/>
+          <path d="M0 0 Q -10 -2, -18 -6 Q -6 4, 2 4 Z"/>
+          <path d="M0 2 Q 12 6, 20 12 Q 8 8, 0 4 Z"/>
+        </g>
+        <g transform="translate(2 78)">
+          <path d="M0 0 Q 14 -4, 20 -12 Q 8 2, 2 4 Z"/>
+          <path d="M0 2 Q -12 -4, -20 -10 Q -8 4, 0 4 Z"/>
+          <path d="M0 2 Q -14 4, -22 8 Q -10 8, 2 6 Z"/>
+        </g>
+        <g transform="translate(32 58)">
+          <path d="M0 0 Q 14 -4, 22 -10 Q 10 2, 2 4 Z"/>
+          <path d="M2 2 Q 16 6, 24 10 Q 12 10, 2 6 Z"/>
+        </g>
+        <g transform="translate(48 46)">
+          <path d="M0 0 Q 14 -4, 20 -10 Q 8 2, 2 4 Z"/>
+          <path d="M0 0 Q 16 4, 24 8 Q 10 8, 2 4 Z"/>
+        </g>
+        <g transform="translate(2 128)">
+          <path d="M0 0 Q 14 2, 22 8 Q 10 4, 2 4 Z"/>
+          <path d="M0 2 Q -12 -2, -18 -6 Q -8 4, 0 4 Z"/>
+        </g>
+        <g transform="translate(32 118)">
+          <path d="M0 0 Q 14 2, 22 6 Q 10 6, 2 4 Z"/>
+          <path d="M0 2 Q 14 6, 22 12 Q 10 10, 0 6 Z"/>
+        </g>
+      </g>
+
+      <!-- ============ PANDA #1 (sitting upright, eating bamboo) ============ -->
+      <g transform="translate(170 178)">
+        <!-- body -->
+        <ellipse cx="30" cy="48" rx="28" ry="26"/>
+        <ellipse cx="14" cy="52" rx="16" ry="20"/>
+        <!-- head -->
+        <circle cx="42" cy="20" r="16"/>
+        <!-- ears -->
+        <circle cx="32" cy="6" r="5"/>
+        <circle cx="52" cy="6" r="5"/>
+        <!-- paws holding bamboo -->
+        <ellipse cx="48" cy="36" rx="6" ry="8" transform="rotate(-20 48 36)"/>
+        <ellipse cx="56" cy="28" rx="5" ry="7" transform="rotate(-30 56 28)"/>
+        <!-- bamboo stalk held -->
+        <rect x="58" y="10" width="2" height="24" transform="rotate(-15 59 22)"/>
+        <path d="M62 8 Q 72 4, 74 -2 Q 66 6, 62 12 Z"/>
+        <!-- rear paws -->
+        <ellipse cx="6" cy="70" rx="10" ry="5"/>
+        <ellipse cx="50" cy="72" rx="8" ry="5"/>
+      </g>
+
+      <!-- ============ PANDA #2 (lying/lounging, on its side) ============ -->
+      <g transform="translate(250 218)">
+        <!-- elongated lying body -->
+        <ellipse cx="34" cy="20" rx="32" ry="14"/>
+        <!-- head at right, resting -->
+        <circle cx="64" cy="16" r="12"/>
+        <!-- ears on top of head -->
+        <circle cx="58" cy="6" r="4"/>
+        <circle cx="70" cy="6" r="4"/>
+        <!-- tucked legs/paws (front and rear showing) -->
+        <ellipse cx="18" cy="32" rx="8" ry="4"/>
+        <ellipse cx="36" cy="32" rx="7" ry="4"/>
+        <ellipse cx="52" cy="30" rx="6" ry="4"/>
+        <!-- little rump/tail tuft -->
+        <ellipse cx="4" cy="20" rx="6" ry="6"/>
+      </g>
+
+      <!-- Bamboo shoots between pandas (ground-level clumps) -->
+      <g transform="translate(230 240)">
+        <rect x="0" y="0" width="1.5" height="12"/>
+        <rect x="4" y="-4" width="1.5" height="16"/>
+        <rect x="8" y="-2" width="1.5" height="14"/>
+        <path d="M-3 -6 Q 4 -10, 10 -14 Q 4 -6, -1 -4 Z"/>
+      </g>
+
+      <!-- ============ BAMBOO GROVE #2 (between pandas and savanne) ============ -->
+      <g transform="translate(340 60)">
+        <rect x="0" y="8" width="2.5" height="198"/>
+        <rect x="12" y="-4" width="2.5" height="210"/>
+        <rect x="26" y="12" width="2.5" height="194"/>
+        <rect x="40" y="2" width="2.5" height="204"/>
+        <!-- nodes -->
+        <rect x="-1" y="44" width="4" height="1.5"/>
+        <rect x="-1" y="94" width="4" height="1.5"/>
+        <rect x="-1" y="144" width="4" height="1.5"/>
+        <rect x="11" y="34" width="4" height="1.5"/>
+        <rect x="11" y="84" width="4" height="1.5"/>
+        <rect x="11" y="134" width="4" height="1.5"/>
+        <rect x="25" y="54" width="4" height="1.5"/>
+        <rect x="25" y="114" width="4" height="1.5"/>
+        <rect x="39" y="44" width="4" height="1.5"/>
+        <rect x="39" y="104" width="4" height="1.5"/>
+        <!-- top cluster -->
+        <g transform="translate(13 -8)">
+          <path d="M0 0 Q 14 -10, 22 -20 Q 12 -6, 2 2 Z"/>
+          <path d="M0 0 Q 16 -4, 26 -6 Q 14 2, 2 4 Z"/>
+          <path d="M2 2 Q 16 6, 24 14 Q 10 8, 0 4 Z"/>
+          <path d="M0 0 Q -12 -8, -20 -18 Q -8 -4, 2 2 Z"/>
+          <path d="M0 2 Q -14 -2, -22 -4 Q -10 4, 2 4 Z"/>
+          <path d="M4 0 Q 18 -14, 22 -26 Q 10 -10, 4 2 Z"/>
+        </g>
+        <g transform="translate(14 34)">
+          <path d="M0 0 Q 14 -2, 22 -8 Q 10 4, 2 4 Z"/>
+          <path d="M0 0 Q -10 -2, -18 -6 Q -6 4, 2 4 Z"/>
+        </g>
+        <g transform="translate(2 74)">
+          <path d="M0 0 Q 14 -4, 20 -12 Q 8 2, 2 4 Z"/>
+          <path d="M0 2 Q -12 -4, -20 -10 Q -8 4, 0 4 Z"/>
+        </g>
+        <g transform="translate(28 112)">
+          <path d="M0 0 Q 14 2, 22 6 Q 10 6, 2 4 Z"/>
+          <path d="M0 2 Q -10 -2, -14 -6 Q -6 4, 0 4 Z"/>
+        </g>
+        <g transform="translate(42 44)">
+          <path d="M0 0 Q 14 -4, 20 -10 Q 8 2, 2 4 Z"/>
+          <path d="M0 0 Q 16 4, 24 8 Q 10 8, 2 4 Z"/>
+        </g>
+      </g>
+
+      <!-- ============ ACACIA #1 ============ -->
+      <g transform="translate(440 110)">
+        <path d="M6 140 C 5 110, 9 80, 7 50 L 10 50 C 12 80, 8 110, 9 140 Z"/>
+        <ellipse cx="8" cy="44" rx="48" ry="7"/>
+        <ellipse cx="-12" cy="40" rx="20" ry="5"/>
+        <ellipse cx="28" cy="42" rx="24" ry="6"/>
+        <ellipse cx="8" cy="38" rx="36" ry="4.5"/>
+      </g>
+
+      <!-- Grass tufts -->
+      <g transform="translate(530 248)">
+        <path d="M0 12 q2 -12 5 -14 q-1 10 0 14z"/>
+        <path d="M8 12 q2 -16 5 -18 q-1 12 0 18z"/>
+        <path d="M16 12 q2 -10 4 -12 q-1 8 0 12z"/>
+      </g>
+
+      <!-- ============ GIRAFFE ============ -->
+      <g transform="translate(580 94)">
+        <!-- body -->
+        <path d="M6 88 Q 4 72, 14 70 L 50 64 Q 62 62, 64 74 Q 66 88, 58 92 L 14 94 Q 4 94, 6 88 Z"/>
+        <!-- legs -->
+        <path d="M18 92 L 17 148 L 14 150 L 14 152 L 22 152 L 22 150 L 21 92 Z"/>
+        <path d="M28 92 L 27 148 L 24 150 L 24 152 L 32 152 L 32 150 L 31 92 Z"/>
+        <path d="M48 92 L 47 146 L 44 148 L 44 150 L 52 150 L 52 148 L 51 92 Z"/>
+        <path d="M58 92 L 57 146 L 54 148 L 54 150 L 62 150 L 62 148 L 61 92 Z"/>
+        <!-- tail -->
+        <path d="M6 82 L 2 96 L -2 108 L 0 110 L 4 100 L 8 90 Z"/>
+        <circle cx="-2" cy="108" r="2.5"/>
+        <!-- neck -->
+        <path d="M50 68 C 58 48, 66 28, 76 10 C 78 4, 82 2, 86 6 C 88 10, 82 18, 78 26 C 70 44, 62 62, 58 72 Z"/>
+        <!-- mane -->
+        <path d="M60 58 L 62 52 L 64 58 Z M 64 46 L 66 40 L 68 46 Z M 68 34 L 70 28 L 72 34 Z M 72 22 L 74 16 L 76 22 Z"/>
+        <!-- head -->
+        <path d="M80 8 Q 88 2, 92 4 Q 96 8, 94 12 L 88 16 Q 82 16, 80 12 Z"/>
+        <!-- ossicones -->
+        <path d="M84 2 L 85 -4 L 87 -4 L 86 2 Z"/>
+        <path d="M88 2 L 89 -4 L 91 -4 L 90 2 Z"/>
+        <circle cx="86" cy="-4" r="1.3"/>
+        <circle cx="90" cy="-4" r="1.3"/>
+        <path d="M82 4 L 78 -2 L 82 0 Z"/>
+      </g>
+
+      <!-- ============ ACACIA #2 (tall, thinner) ============ -->
+      <g transform="translate(740 90)">
+        <path d="M3 150 C 2 110, 5 70, 3 40 L 6 40 C 8 70, 5 110, 6 150 Z"/>
+        <ellipse cx="4" cy="36" rx="42" ry="7"/>
+        <ellipse cx="-12" cy="32" rx="18" ry="5"/>
+        <ellipse cx="22" cy="34" rx="22" ry="5"/>
+      </g>
+
+      <!-- Birds flying -->
+      <g opacity="0.6">
+        <path d="M820 100 q4 -4 8 0 q4 -4 8 0 q-4 2 -8 1 q-4 1 -8 -1z"/>
+        <path d="M860 88 q3 -3 6 0 q3 -3 6 0 q-3 2 -6 1 q-3 1 -6 -1z"/>
+      </g>
+
+      <!-- Bush -->
+      <g transform="translate(830 238)">
+        <ellipse cx="14" cy="16" rx="18" ry="8"/>
+        <ellipse cx="2" cy="20" rx="6" ry="4"/>
+        <ellipse cx="28" cy="20" rx="8" ry="4"/>
+      </g>
+
+      <!-- ============ ELEPHANT ADULT ============ -->
+      <g transform="translate(900 132)">
+        <!-- body + back -->
+        <path d="M28 58
+                 Q 20 36, 40 24
+                 Q 68 14, 100 20
+                 Q 120 24, 126 44
+                 Q 132 66, 128 88
+                 Q 128 100, 122 104
+                 L 114 104
+                 L 112 86
+                 L 46 86
+                 L 44 104
+                 L 34 104
+                 Q 22 100, 24 82
+                 Q 20 70, 28 58 Z"/>
+        <!-- head dome -->
+        <path d="M126 44
+                 Q 142 42, 148 58
+                 Q 152 76, 146 88
+                 L 134 88
+                 Q 126 82, 124 72
+                 Q 124 58, 126 44 Z"/>
+        <!-- ear -->
+        <path d="M108 32
+                 Q 134 34, 138 62
+                 Q 134 70, 124 68
+                 Q 112 56, 108 42
+                 Q 106 36, 108 32 Z"/>
+        <!-- trunk curl -->
+        <path d="M148 62
+                 Q 162 68, 166 82
+                 Q 168 96, 162 104
+                 Q 158 110, 154 108
+                 Q 152 104, 156 100
+                 Q 162 94, 160 86
+                 Q 156 78, 148 74 Z"/>
+        <!-- tusk -->
+        <path d="M142 84 L 148 92 L 145 94 L 140 88 Z"/>
+        <!-- legs -->
+        <path d="M46 86 L 44 114 L 56 114 L 58 86 Z"/>
+        <path d="M68 86 L 66 114 L 78 114 L 80 86 Z"/>
+        <path d="M90 86 L 88 114 L 100 114 L 102 86 Z"/>
+        <path d="M110 86 L 108 114 L 120 114 L 122 86 Z"/>
+        <!-- toenails -->
+        <rect x="47" y="111" width="2" height="2"/>
+        <rect x="52" y="111" width="2" height="2"/>
+        <rect x="69" y="111" width="2" height="2"/>
+        <rect x="74" y="111" width="2" height="2"/>
+        <rect x="91" y="111" width="2" height="2"/>
+        <rect x="96" y="111" width="2" height="2"/>
+        <rect x="111" y="111" width="2" height="2"/>
+        <rect x="116" y="111" width="2" height="2"/>
+        <!-- tail -->
+        <path d="M28 66 L 22 82 L 18 94 L 21 96 L 24 86 L 30 72 Z"/>
+        <circle cx="18" cy="94" r="2"/>
+      </g>
+
+      <!-- ============ ELEPHANT CALF ============ -->
+      <g transform="translate(1080 188)">
+        <path d="M14 34
+                 Q 8 22, 20 16
+                 Q 36 10, 52 14
+                 Q 64 18, 68 30
+                 Q 72 46, 68 58
+                 L 62 58 L 60 46 L 28 46 L 26 58 L 20 58
+                 Q 12 56, 14 46
+                 Q 10 40, 14 34 Z"/>
+        <path d="M68 30 Q 78 30, 80 42 Q 80 54, 74 58 L 66 58 Q 64 50, 66 42 Q 64 34, 68 30 Z"/>
+        <path d="M80 42 Q 88 44, 90 54 Q 90 60, 86 60 Q 84 58, 86 56 Q 88 50, 80 48 Z"/>
+        <path d="M62 24 Q 74 26, 76 42 Q 70 42, 64 36 Z"/>
+        <path d="M24 46 L 22 60 L 30 60 L 32 46 Z"/>
+        <path d="M38 46 L 36 60 L 44 60 L 46 46 Z"/>
+        <path d="M50 46 L 48 60 L 56 60 L 58 46 Z"/>
+        <path d="M60 46 L 58 60 L 65 60 L 66 46 Z"/>
+        <path d="M14 38 L 10 48 L 12 50 L 16 42 Z"/>
+      </g>
+
+      <!-- Grass -->
+      <g transform="translate(1200 248)">
+        <path d="M0 12 q2 -12 5 -14 q-1 10 0 14z"/>
+        <path d="M7 12 q2 -16 5 -18 q-1 12 0 18z"/>
+      </g>
+
+      <!-- ============ ACACIA #3 (far right, big umbrella) ============ -->
+      <g transform="translate(1290 80)">
+        <path d="M32 160 C 30 120, 36 80, 32 42 L 36 42 C 40 80, 34 120, 36 160 Z"/>
+        <ellipse cx="34" cy="40" rx="56" ry="10"/>
+        <ellipse cx="-6" cy="48" rx="30" ry="8"/>
+        <ellipse cx="70" cy="46" rx="36" ry="10"/>
+        <ellipse cx="34" cy="30" rx="44" ry="7"/>
+        <ellipse cx="14" cy="36" rx="20" ry="6"/>
+      </g>
+    </g>
+    </g>
+
+    <!-- Warm ground-glow wash across bottom -->
+    <rect x="0" y="322" width="1440" height="14" fill="#D96A0B" opacity="0.22"/>
+    <rect x="0" y="332" width="1440" height="8" fill="#00293A" opacity="0.28"/>
+  </svg>
+
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="hero-greeting">Fijn dat je er bent —</span>
+      <span class="hero-eyebrow">
+        <span class="jubileum">50 jaar SDB</span>
+        Een onvergetelijk cadeau voor iedereen
+      </span>
+      <h1>
+        Een dag<br/>
+        samen<br/>
+        <span class="zoo">@ The Zoo.</span>
+      </h1>
+      <p class="hero-sub">
+        Al 50 jaar werkt SDB samen met organisaties in de zorg en kinderopvang. Dit jubileum vieren we niet met onszelf, maar met jou, je collega's, je cliënten en hun naasten. Een dag vol inspiratie, ontmoeting en genieten in Ouwehands Dierenpark.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#aanmelden">
+          Meld je aan
+          <svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#programma">
+          Bekijk het programma
+        </a>
+      </div>
+      <div class="hero-meta">
+        <span>
+          <svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+          Kies 4 of 5 september 2026
+        </span>
+        <span>
+          <svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Ouwehands Dierenpark, Rhenen
+        </span>
+        <span>
+          <svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 7a6.5 6.5 0 1 0 0 10"/><path d="M4 10h10"/><path d="M4 14h10"/></svg>
+          Gratis — een volledig verzorgde dag
+        </span>
+      </div>
+    </div>
+
+    <div class="save-card" aria-label="Save the date">
+      <div class="save-scribble">Save the date!</div>
+      <div class="save-card-head">
+        <span class="pill">Kies één dag</span>
+      </div>
+      <div class="save-date">
+        <div class="d">
+          <div class="day">Vrijdag</div>
+          <div class="n">4</div>
+          <div class="m">september '26</div>
+        </div>
+        <div class="amp">of</div>
+        <div class="d">
+          <div class="day">Zaterdag</div>
+          <div class="n">5</div>
+          <div class="m">september '26</div>
+        </div>
+      </div>
+      <div class="save-hint">Meld je aan voor de dag die jou het beste uitkomt.</div>
+      <div class="save-foot">
+        <svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Ouwehands Dierenpark · Grebbeweg 111, Rhenen
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== INTRO BAND ============== -->
+<section class="intro-band">
+  <div class="wrap intro-grid">
+    <div>
+      <div class="eyebrow">Ons cadeau aan jou</div>
+      <h2>50 jaar<br/>samen<span class="hl">.</span></h2>
+    </div>
+    <div>
+      <p>Dit jaar vieren we ons 50-jarig jubileum, een bijzondere mijlpaal waar we trots op zijn. Maar dit moment gaat voor ons niet alleen over terugkijken. Het gaat juist over <b>vooruitkijken</b>. Over teruggeven aan de samenleving.</p>
+      <p>Daarom zetten we op 4 en 5 september anderen in het zonnetje. We geven ruimte en aandacht terug aan de mensen die voor anderen zorgen. Aan de cliënten die zij begeleiden. Aan de naasten die meegaan. We nodigen iedereen uit om mee te doen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== AUDIENCE ============== -->
+<section class="audience" id="voor-wie">
+  <div class="wrap">
+    <div class="aud-head">
+      <div class="eyebrow">Voor wie</div>
+      <h2>Een dag speciaal voor <em>jou</em>.</h2>
+      <p>We verwelkomen onze hele community: klanten, hun medewerkers, hun cliënten en hun naasten. Maar we weten: elke zorgcontext vraagt iets anders. Daarom vertellen we het ook per sector.</p>
+    </div>
+
+    <div class="aud-tabs" role="tablist">
+      <button class="aud-tab active" data-tab="ghz" role="tab">Gehandicaptenzorg</button>
+      <button class="aud-tab" data-tab="jeugd" role="tab">Jeugdzorg</button>
+      <button class="aud-tab" data-tab="vvt" role="tab">VVT / Ouderenzorg</button>
+      <button class="aud-tab" data-tab="allen" role="tab">Voor iedereen</button>
+    </div>
+
+    <!-- GHZ -->
+    <div class="aud-panel active" data-aud="ghz">
+      <div class="aud-body">
+        <span class="badge">Gehandicaptenzorg</span>
+        <h3>Een vertrouwde omgeving, met ruimte om te genieten.</h3>
+        <p class="lede">Cliënten in de gehandicaptenzorg hebben een vertrouwde omgeving nodig, maar vooral ook een dag waarin ze kunnen genieten, lachen en meedoen. Een dag waarop ze alle andere zaken waarover ze zich zorgen maken even los kunnen laten.</p>
+        <p class="lede">Jij en je collega's weten als geen ander hoe groot de druk op de zorg is. En jullie zien elke dag wat er mogelijk is als mensen zich gezien voelen en erbij horen. Daarom geven we jullie graag iets terug.</p>
+        <div class="aud-callout">
+          <b>Aan de sleutelfiguur</b>
+          <p>"Jij weet bij wie dit past. Maak de selectie, wij zorgen dat alles klaarstaat."</p>
+        </div>
+      </div>
+      <div class="aud-side">
+        <div class="aud-quote">
+          <div class="who">Aan de cliënt</div>
+          <div class="msg">We gaan samen op stap. Naar een groot feest in Ouwehands Dierenpark. Met muziek, activiteiten, dieren en veel mensen. Jouw groep en begeleiders gaan ook mee.</div>
+          <div class="sign">"Ik doe mee"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jeugdzorg -->
+    <div class="aud-panel" data-aud="jeugd">
+      <div class="aud-body">
+        <span class="badge">Jeugdzorg</span>
+        <h3>Een dag om gewoon jongere te zijn.</h3>
+        <p class="lede">Jongeren in dagbehandeling dragen vaak een zwaar verhaal. Een dag waarop dat even niet het middelpunt is, waarop ze gewoon mogen genieten, lachen, meedoen, heeft therapeutische waarde zonder dat het zo hoeft te heten.</p>
+        <p class="lede">We willen dat ze een dag lang gewoon jongere mogen zijn. En voor de ouder die meekomt: een dag samen, buiten de context van zorg en behandeling. Thuiskomen met het gevoel: ik ben er geweest, ik ben gezien, ik heb kunnen meegenieten.</p>
+        <div class="aud-callout">
+          <b>Voor cliënt én ouder</b>
+          <p>"Ik tel mee, ik maak het verschil, ik word gezien."</p>
+        </div>
+      </div>
+      <div class="aud-side">
+        <div class="aud-quote">
+          <div class="who">Aan cliënten en ouders</div>
+          <div class="msg">Op 4 en 5 september gaan we samen op stap. Naar een groot feest in Ouwehands Dierenpark. Met muziek, activiteiten, dieren en veel mensen. Jouw groep en begeleiders gaan ook mee. Welke dag ben jij er bij?</div>
+          <div class="sign">"Ik wil mee"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VVT -->
+    <div class="aud-panel" data-aud="vvt">
+      <div class="aud-body">
+        <span class="badge">VVT · Ouderenzorg</span>
+        <h3>Een dag buiten de muren van de zorg.</h3>
+        <p class="lede">In de VVT is de dag vaak voorspelbaar en dat is goed. Maar juist daarom is een uitstapje zoveel waard. Een dag buitenlucht, dieren, muziek, andere mensen. Herinneringen om over na te praten, thuis en op de afdeling.</p>
+        <p class="lede">Voor zorgmedewerkers: een dag waarop jullie niet degenen zijn die zorgen, maar degenen voor wie gezorgd wordt. Een dankjewel, een moment om even bij te tanken, samen met jullie bewoners en hun families.</p>
+        <div class="aud-callout">
+          <b>Een rustige route of juist volop activiteit</b>
+          <p>"We zorgen voor toegankelijkheid, een rustige route door het park, en voldoende ruimte om te ontspannen."</p>
+        </div>
+      </div>
+      <div class="aud-side">
+        <div class="aud-quote">
+          <div class="who">Aan bewoner &amp; familie</div>
+          <div class="msg">Een dag samen, buiten de vertrouwde muren. Met tijd om te zitten, te kijken, te praten. En met hulp dichtbij als het nodig is — jullie eigen begeleiding gaat mee.</div>
+          <div class="sign">"We zijn er bij"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Allen -->
+    <div class="aud-panel" data-aud="allen">
+      <div class="aud-body">
+        <span class="badge">Onze hele community</span>
+        <h3>De hele zorg- en welzijnscommunity, onder één boom.</h3>
+        <p class="lede">Of je nu werkt in de jeugdzorg, gehandicaptenzorg, VVT of een andere tak van zorg en kinderopvang: je bent van harte welkom. Ook als klant, medewerker, bestuurder of partner van SDB.</p>
+        <p class="lede">Naast de inhoudelijke programma's is dit vooral een dag om elkaar te ontmoeten. Over sectoren heen. Andere perspectieven, dezelfde drijfveer: zorgen dat mensen zich gezien voelen.</p>
+        <div class="aud-callout">
+          <b>Eén community, verschillende gezichten</b>
+          <p>"We houden ruimte voor ontmoeting over de grenzen van jouw dagelijkse werk heen."</p>
+        </div>
+      </div>
+      <div class="aud-side">
+        <div class="aud-quote">
+          <div class="who">Een open uitnodiging</div>
+          <div class="msg">We nodigen iedereen uit om mee te doen. Ruimte om te denken, te verbinden en te genieten — in een setting die inspiratie geeft en tijd voor aandacht.</div>
+          <div class="sign">"Samen"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PROGRAMMA ============== -->
+<section class="programma" id="programma">
+  <div class="wrap">
+    <div class="prog-head">
+      <div class="eyebrow">Het programma</div>
+      <h2>Inhoud én beleving<span class="hl">.</span></h2>
+      <p>Op het SDB Community Care Event combineren we inhoud en beleving. Het jubileum van 50 jaar SDB vormt de rode draad — met ruimte voor inspiratie, ontmoeting en een blik op de toekomst. De balans tussen inhoud, reflectie en een ontspannen dag voor jou.</p>
+    </div>
+
+    <div class="prog-grid">
+      <div class="prog-card">
+        <div class="icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/></svg>
+        </div>
+        <h3>Inspiratiesessies &amp; lezingen</h3>
+        <p>Thema's die aansluiten bij jouw praktijk — met stof tot nadenken en concrete meeneempunten.</p>
+        <ul>
+          <li>De toekomst van zorg en welzijn</li>
+          <li>Samenwerking binnen de community</li>
+          <li>Technologische en maatschappelijke ontwikkelingen</li>
+        </ul>
+      </div>
+      <div class="prog-card">
+        <div class="icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Ontmoeting &amp; verbinding</h3>
+        <p>Met collega's uit de sector, mensen van andere organisaties en het SDB-team. Gesprekken die je niet in een Zoom-overleg voert.</p>
+        <ul>
+          <li>Informele lunch in het park</li>
+          <li>Gezamenlijke rondleidingen</li>
+          <li>Open podium voor klantverhalen</li>
+        </ul>
+      </div>
+      <div class="prog-card">
+        <div class="icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3a2 2 0 0 0-2 2"/><path d="M19 3a2 2 0 0 1 2 2"/><path d="M21 19a2 2 0 0 1-2 2"/><path d="M5 21a2 2 0 0 1-2-2"/><path d="M9 3h1"/><path d="M9 21h1"/><path d="M14 3h1"/><path d="M14 21h1"/><path d="M3 9v1"/><path d="M21 9v1"/><path d="M3 14v1"/><path d="M21 14v1"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>Een dag in het park</h3>
+        <p>Natuurlijk ook volop tijd om Ouwehands Dierenpark zelf te beleven — in je eigen tempo, met jouw groep.</p>
+        <ul>
+          <li>Vrije toegang tot het hele park</li>
+          <li>Lunch en versnaperingen inbegrepen</li>
+          <li>Toegankelijke routes beschikbaar</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prog-note">
+      <svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+      Het volledige tijdsschema volgt kort voor het event. Aangemelde deelnemers ontvangen dit als eerste per e-mail.
+    </div>
+  </div>
+</section>
+
+<!-- ============== WAAROM / JUBILEUM ============== -->
+<section class="why">
+  <div class="wrap why-grid">
+    <div class="why-copy">
+      <div class="eyebrow">Waarom dit event?</div>
+      <h2>Het gaat niet om ons.<br/>Het gaat om <span class="hl">jullie</span>.</h2>
+      <p>Dit jaar vieren we ons 50-jarig jubileum. Een bijzondere mijlpaal waar we trots op zijn. Maar dit moment gaat voor ons niet alleen over terugkijken — het gaat juist over vooruitkijken. Over het kunnen en mogen teruggeven aan de samenleving.</p>
+      <p>Daarom zetten we op 4 en 5 september anderen in het zonnetje. Door ruimte en aandacht terug te geven aan de mensen die élke dag voor anderen zorgen. We nodigen iedereen uit om mee te doen.</p>
+    </div>
+
+    <div class="jubilee-stamp" aria-hidden="true">
+      <div class="ring"></div>
+      <svg class="curved" viewBox="0 0 400 400">
+        <defs>
+          <path id="circ" d="M 200,200 m -165,0 a 165,165 0 1,1 330,0 a 165,165 0 1,1 -330,0"/>
+        </defs>
+        <text><textPath href="#circ" startOffset="0">· SDB · 1976 — 2026 · 50 jaar samen zorgen · SDB · 1976 — 2026 · 50 jaar samen zorgen</textPath></text>
+      </svg>
+      <div class="inner">
+        <div class="year-big">50</div>
+        <div class="lab">Jubileum</div>
+        <div class="jr">1976 — 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PRACTISCH ============== -->
+<section class="practical" id="praktisch">
+  <div class="wrap">
+    <div class="practical-head">
+      <div class="eyebrow">In het kort</div>
+      <h2>Het praktische.</h2>
+    </div>
+    <div class="practical-grid">
+      <div class="prac-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></div>
+        <h4>Wanneer</h4>
+        <div class="val">4 of 5 september</div>
+        <div class="sub">2026 · kies de dag die jou uitkomt</div>
+      </div>
+      <div class="prac-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+        <h4>Waar</h4>
+        <div class="val">Ouwehands Dierenpark</div>
+        <div class="sub">Grebbeweg 111, Rhenen</div>
+      </div>
+      <div class="prac-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 7a6.5 6.5 0 1 0 0 10"/><path d="M4 10h10"/><path d="M4 14h10"/></svg></div>
+        <h4>Kosten</h4>
+        <div class="val">Gratis</div>
+        <div class="sub">Een volledig verzorgde dag — lunch en toegang inbegrepen</div>
+      </div>
+      <div class="prac-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18"/><path d="M12 3a15 15 0 0 0 0 18"/></svg></div>
+        <h4>Toegankelijkheid</h4>
+        <div class="val">Voor iedereen</div>
+        <div class="sub">Rustige routes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FAQ TEASER ============== -->
+<section class="faq-teaser" id="faq">
+  <div class="wrap">
+    <div class="faq-teaser-head">
+      <div>
+        <div class="eyebrow">Veelgestelde vragen</div>
+        <h2>Dat vroegen anderen<span class="hl">.</span></h2>
+      </div>
+      <a href="faq.html">Alle vragen bekijken →</a>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>
+          Wat kan ik verwachten?
+          <span class="chev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <div class="answer">
+          Een dag die inhoud en beleving combineert. Inspiratiesessies en lezingen over de toekomst van zorg en welzijn, gelegenheid om elkaar te ontmoeten, en volop tijd om Ouwehands Dierenpark te beleven. Lunch en toegang zijn inbegrepen.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Wat kost deelname?
+          <span class="chev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <div class="answer">
+          Niets. Het SDB Community Care Event is ons cadeau aan de community. Parktoegang, programma en lunch zijn volledig kosteloos voor aangemelde deelnemers.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Wie zijn er welkom?
+          <span class="chev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <div class="answer">
+          Onze hele community: klanten van SDB, hun medewerkers, hun cliënten en de naasten die meegaan. Werk je in de jeugdzorg, gehandicaptenzorg of VVT — je bent van harte welkom. Andere sectoren van zorg en welzijn? Ook jij hoort erbij.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Is de locatie voor iedereen toegankelijk?
+          <span class="chev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <div class="answer">
+          Ja. Ouwehands Dierenpark is toegankelijk voor rolstoelen en mensen die slecht ter been zijn. We zorgen voor rustige routes en extra ondersteuning waar dat nodig is. Geef bij aanmelding door welke behoeftes jouw groep heeft — dan regelen wij de rest.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============== REGISTER ============== -->
+<section class="register" id="aanmelden">
+  <div class="wrap">
+    <div class="register-card">
+      <div>
+        <div class="eyebrow" style="color: var(--event-sun);">Aanmelden</div>
+        <h2>Doe <span class="sun">mee</span>. Kom<br/>naar <span class="acc">the Zoo</span>.</h2>
+        <p class="lede">Aanmelden kan direct via het formulier hiernaast. Vertel ons wie je bent en met hoeveel mensen je komt — dan zorgen wij dat alles klaarstaat.</p>
+        <ul class="register-steps">
+          <li><span class="n">1</span><span>Vul je gegevens in — naam, organisatie, aantal personen.</span></li>
+          <li><span class="n">2</span><span>Je ontvangt direct een bevestiging per e-mail.</span></li>
+          <li><span class="n">3</span><span>Kort voor het event krijg je het definitieve programma.</span></li>
+        </ul>
+      </div>
+
+      <div class="register-form">
+        <h3>Ik doe mee</h3>
+        <p class="sub">Het formulier hieronder is een voorbeeldweergave. Bij livegang wordt hier het Zoho Forms–formulier geëmbed.</p>
+
+        <!--
+          ============================================
+          ZOHO FORMS EMBED — vervang de <form> hieronder
+          door de door Zoho geleverde iframe of script.
+          Voorbeeld:
+          <iframe src="https://forms.zohopublic.eu/sdb/form/CommunityCareEvent/formperma/XXXXX"
+                  style="border:0; width:100%; min-height:720px;"></iframe>
+          ============================================
+        -->
+
+        <form onsubmit="event.preventDefault(); this.querySelector('.rf-submit').innerText='Bedankt — we mailen je snel!';">
+          <div class="rf-group">
+            <label for="f-name">Voor- en achternaam</label>
+            <input id="f-name" type="text" required placeholder="Jouw naam" />
+          </div>
+          <div class="rf-row">
+            <div class="rf-group">
+              <label for="f-email">E-mail</label>
+              <input id="f-email" type="email" required placeholder="jij@voorbeeld.nl" />
+            </div>
+            <div class="rf-group">
+              <label for="f-org">Organisatie</label>
+              <input id="f-org" type="text" placeholder="Bijv. Zorggroep X" />
+            </div>
+          </div>
+          <div class="rf-row">
+            <div class="rf-group">
+              <label for="f-sector">Sector</label>
+              <select id="f-sector" required>
+                <option value="">Kies…</option>
+                <option>Gehandicaptenzorg</option>
+                <option>Jeugdzorg</option>
+                <option>VVT / Ouderenzorg</option>
+                <option>Andere sector</option>
+              </select>
+            </div>
+            <div class="rf-group">
+              <label for="f-day">Welke dag?</label>
+              <select id="f-day" required>
+                <option value="">Kies…</option>
+                <option>Vrijdag 4 september</option>
+                <option>Zaterdag 5 september</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="rf-submit">
+            Meld mij aan
+            <svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </button>
+          <div class="rf-embed-note">Bij livegang: veilig en AVG-proof via Zoho Forms.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">
+          <span class="dot"></span>
+          <span><b>SDB.</b> software that <span class="cares">cares</span></span>
+        </div>
+        <p>Al 50 jaar bouwt SDB software waarmee zorg- en welzijnsorganisaties hun werk beter kunnen doen. Van ECD tot rooster, van HR tot cliëntportaal.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Het event</h5>
+        <a href="#programma">Programma</a>
+        <a href="#voor-wie">Voor wie</a>
+        <a href="#praktisch">Praktisch</a>
+        <a href="faq.html">Veelgestelde vragen</a>
+        <a href="#aanmelden">Aanmelden</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ef8a998a819b9caf9c8b8d889d808a9fc18183">[email&#160;protected]</a></span>
+        <span>0348 - 43 75 75</span>
+        <a href="https://www.sdbgroep.nl" target="_blank" rel="noopener">sdbgroep.nl</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 1976 — 2026 SDB Groep · 50 jaar samen zorgen</span>
+      <span><a href="#">Privacy</a> · <a href="#">Cookies</a></span>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Audience tabs
+  const tabs = document.querySelectorAll('.aud-tab');
+  const panels = document.querySelectorAll('.aud-panel');
+  tabs.forEach(t => {
+    t.addEventListener('click', () => {
+      const key = t.dataset.tab;
+      tabs.forEach(x => x.classList.toggle('active', x === t));
+      panels.forEach(p => p.classList.toggle('active', p.dataset.aud === key));
+    });
+  });
+
+  // Scroll reveal — light touch
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => io.observe(r));
+</script>
+
+</body>
+</html>

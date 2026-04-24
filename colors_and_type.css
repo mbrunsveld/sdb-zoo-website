@@ -1,0 +1,158 @@
+/* SDB Design System — Colors & Type */
+
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* Brand — primary */
+  --sdb-ink: #000000;           /* primary text */
+  --sdb-orange: #F58220;        /* highlight / accent */
+  --sdb-orange-deep: #D96A0B;   /* pressed / hover on orange */
+  --sdb-orange-soft: #FFE8D4;   /* orange tinted surface */
+
+  /* Brand — supporting */
+  --sdb-sky: #62AFC9;           /* soft blue */
+  --sdb-sky-soft: #D6EAF1;      /* sky tint */
+  --sdb-blue: #0097C5;          /* strong blue */
+  --sdb-blue-deep: #007BA1;
+  --sdb-blue-soft: #D1EEF6;
+  --sdb-teal: #1EB0A1;          /* mint teal */
+  --sdb-teal-soft: #D0F0EB;
+
+  /* Neutrals */
+  --sdb-white: #FFFFFF;
+  --sdb-paper: #F4F8FA;         /* soft sky-tinted page */
+  --sdb-cream: #E6EEF2;         /* deeper sky panel */
+  --sdb-line: #D3E0E6;          /* hairline on sky panels */
+  --sdb-mute: #4F6770;          /* cool secondary text */
+
+  /* Brand deep blue — replaces charcoal */
+  --sdb-navy: #003A50;          /* primary deep bg */
+  --sdb-navy-2: #00293A;        /* deeper footer */
+  --sdb-navy-soft: #D6E4EA;     /* navy tint */
+  --sdb-charcoal: #003A50;      /* alias — kept for back-compat */
+
+  /* Semantic */
+  --fg-1: var(--sdb-ink);
+  --fg-2: var(--sdb-mute);
+  --fg-inverse: var(--sdb-white);
+  --bg-page: var(--sdb-paper);
+  --bg-panel: var(--sdb-cream);
+  --bg-dark: var(--sdb-navy);
+  --accent: var(--sdb-orange);
+  --link: var(--sdb-blue-deep);
+
+  /* Type */
+  --font-sans: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Radii (soft, rounded — matches Nunito's character) */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 32px;
+  --r-pill: 999px;
+
+  /* Shadow — soft, warm, never harsh */
+  --shadow-xs: 0 1px 2px rgba(20, 15, 10, 0.06);
+  --shadow-sm: 0 4px 12px rgba(20, 15, 10, 0.06);
+  --shadow-md: 0 12px 30px rgba(20, 15, 10, 0.08);
+  --shadow-lg: 0 28px 60px rgba(20, 15, 10, 0.12);
+
+  /* Spacing scale */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 128px;
+}
+
+html, body {
+  font-family: var(--font-sans);
+  color: var(--fg-1);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Semantic type scale — rounded, generous, warm */
+.sdb-display {
+  font-weight: 700;
+  font-size: clamp(44px, 6.2vw, 84px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+.sdb-h1 {
+  font-weight: 700;
+  font-size: clamp(32px, 3.6vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+}
+.sdb-h2 {
+  font-weight: 700;
+  font-size: clamp(26px, 2.4vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.sdb-h3 {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.25;
+}
+.sdb-lead {
+  font-weight: 400;
+  font-size: clamp(18px, 1.4vw, 22px);
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+.sdb-body {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.6;
+}
+.sdb-small {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+.sdb-eyebrow {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sdb-orange);
+}
+
+/* Accent — the "cares" treatment: orange word inside a dark title */
+.sdb-highlight { color: var(--sdb-orange); }
