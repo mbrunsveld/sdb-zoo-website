@@ -40,149 +40,113 @@
   /* ============ NAV ============ */
   .nav-outer {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(251, 245, 233, 0.85);
-    backdrop-filter: blur(14px) saturate(140%);
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    background: #fff;
     color: var(--sdb-navy);
-    border-bottom: 1px solid rgba(217,106,11,0.12);
+    border-bottom: 1px solid var(--sdb-line);
+    box-shadow: 0 1px 8px rgba(0,58,80,0.06);
   }
-  .nav-links { color: var(--sdb-navy) !important; }
-  .nav-links a { color: #5A4635 !important; }
-  .nav-links a:hover { color: var(--sdb-orange-deep) !important; }
+  .nav-links { color: var(--sdb-navy); }
+  .nav-links a { color: var(--sdb-navy); font-weight: 700; }
+  .nav-links a:hover { color: var(--sdb-teal); }
   .nav-logo { color: var(--sdb-navy); }
-  .nav-logo small { color: rgba(0,58,80,0.55) !important; }
   .nav {
     display: flex; align-items: center; justify-content: space-between;
     height: 72px;
   }
   .nav-logo {
-    display: flex; align-items: center; gap: 10px;
-    font-weight: 700; font-size: 18px;
-    letter-spacing: -0.01em;
-    line-height: 1.1;
+    display: flex; align-items: center;
+    line-height: 1;
   }
-  .nav-logo .dot {
-    width: 10px; height: 10px; border-radius: 50%;
-    background: var(--sdb-orange);
-    box-shadow: 0 0 0 4px rgba(245,130,32,0.18);
-  }
-  .nav-logo small {
-    display: block; font-size: 11px; font-weight: 700;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
+  .nav-logo .dot { display: none; }
+  .nav-logo svg.sdb-logo {
+    height: 40px;
+    width: auto;
+    display: block;
   }
   .nav-links {
     display: flex; gap: 28px;
-    font-weight: 400; font-size: 15px;
-    color: #D6E3E9;
+    font-weight: 700; font-size: 15px;
+    color: var(--sdb-navy);
   }
-  .nav-links a:hover { color: #fff; }
+  .nav-links a { color: var(--sdb-navy); }
+  .nav-links a:hover { color: var(--sdb-teal); }
   .nav-cta {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 11px 20px;
-    background: var(--sdb-orange);
+    background: var(--sdb-teal);
     color: #fff; border-radius: var(--r-pill);
     font-weight: 700; font-size: 14px;
     transition: background .15s ease, transform .15s ease;
   }
-  .nav-cta:hover { background: var(--sdb-orange-deep); }
+  .nav-cta:hover { background: #178A7D; }
   .nav-cta:active { transform: translateY(1px); }
   @media (max-width: 820px) { .nav-links { display: none; } }
 
-  /* ============ HERO (warm, community + zoo) ============ */
+  /* ============ HERO (navy/teal — huisstijl) ============ */
   .hero {
     position: relative;
     isolation: isolate;
     background:
-      radial-gradient(ellipse 900px 620px at 85% -10%, #FFE39A 0%, rgba(255,227,154,0) 60%),
-      radial-gradient(ellipse 1100px 700px at 10% 110%, #FFB877 0%, rgba(255,184,119,0) 58%),
-      radial-gradient(ellipse 640px 520px at 50% 55%, rgba(255,238,210,0.7), transparent 72%),
-      linear-gradient(180deg, #FFF4DC 0%, #FFE0B8 48%, #FFC98D 100%);
-    color: var(--sdb-navy);
-    padding: 72px 0 260px;
+      radial-gradient(ellipse 900px 700px at 90% -5%, rgba(30,176,161,0.22) 0%, transparent 60%),
+      radial-gradient(ellipse 700px 600px at -5% 100%, rgba(30,176,161,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse 500px 400px at 50% 60%, rgba(0,151,197,0.08), transparent 65%),
+      linear-gradient(160deg, #004A66 0%, #003A50 45%, #00293A 100%);
+    color: #fff;
+    padding: 72px 0 200px;
     overflow: hidden;
   }
-  /* Golden sun disc */
-  .hero .sun {
-    position: absolute; z-index: 0;
-    top: 70px; right: 10%;
-    width: 180px; height: 180px; border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #FFEDB2 0%, #F5B628 55%, #E08B1A 100%);
-    box-shadow: 0 0 80px 20px rgba(245,182,40,0.35);
-    opacity: 0.85;
-    pointer-events: none;
-  }
-  @media (max-width: 960px) {
-    .hero .sun { top: 30px; right: 5%; width: 120px; height: 120px; }
-  }
-  /* Distant rolling hills */
-  .hero .hills {
-    position: absolute; left: 0; right: 0; bottom: 0; z-index: 0;
-    width: 100%; height: 380px;
-    pointer-events: none;
-  }
-  /* Stylized canopy strip */
-  .hero .scene {
-    position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
-    width: 100%; height: 340px;
-    pointer-events: none;
-  }
-  /* Warm drifting glow orbs */
+  /* Teal glow orbs */
   .hero .glow {
     position: absolute; z-index: 0; pointer-events:none;
-    border-radius: 50%; filter: blur(18px);
-    animation: glowDrift 14s ease-in-out infinite;
+    border-radius: 50%; filter: blur(22px);
+    animation: glowDrift 16s ease-in-out infinite;
   }
   .hero .glow.g1 {
-    top: 18%; left: 14%;
-    width: 180px; height: 180px;
-    background: radial-gradient(circle, rgba(245,182,40,0.55), rgba(245,182,40,0) 70%);
+    top: 15%; left: 10%;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(30,176,161,0.28), rgba(30,176,161,0) 70%);
   }
   .hero .glow.g2 {
-    top: 38%; left: 46%;
-    width: 240px; height: 240px;
-    background: radial-gradient(circle, rgba(217,106,11,0.35), rgba(217,106,11,0) 70%);
-    animation-delay: -5s;
+    top: 40%; left: 50%;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(0,151,197,0.18), rgba(0,151,197,0) 70%);
+    animation-delay: -6s;
   }
   .hero .glow.g3 {
-    top: 8%; left: 62%;
+    top: 5%; left: 65%;
     width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(255,220,160,0.6), rgba(255,220,160,0) 70%);
-    animation-delay: -9s;
+    background: radial-gradient(circle, rgba(30,176,161,0.22), rgba(30,176,161,0) 70%);
+    animation-delay: -11s;
   }
   @keyframes glowDrift {
     0%,100% { transform: translate(0,0) scale(1); }
-    50%     { transform: translate(18px,-14px) scale(1.08); }
+    50%     { transform: translate(16px,-12px) scale(1.07); }
   }
   /* Connecting ribbon */
   .hero .ribbon {
     position: absolute; left: 0; right: 0; top: 20%; z-index: 0;
     width: 100%; height: 280px;
     pointer-events: none;
+    opacity: 0.5;
   }
-  /* Tiny floating leaves */
-  .hero .leaf {
-    position: absolute; z-index: 0; pointer-events: none;
-    color: #8BA86B; opacity: 0.55;
-    animation: floatLeaf 9s ease-in-out infinite;
+  /* Bottom wave */
+  .hero .hills {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
+    width: 100%; height: 200px;
+    pointer-events: none;
   }
-  .hero .leaf.l1 { top: 18%; left: 8%; animation-delay: 0s; }
-  .hero .leaf.l2 { top: 32%; left: 52%; animation-delay: -3s; color: #D96A0B; opacity: 0.45; }
-  .hero .leaf.l3 { top: 12%; left: 72%; animation-delay: -5s; color: #E5A82A; opacity: 0.5; }
-  .hero .leaf.l4 { top: 46%; left: 22%; animation-delay: -2s; color: #8BA86B; opacity: 0.35; }
-  @keyframes floatLeaf {
-    0%,100% { transform: translate(0,0) rotate(0deg); }
-    50%     { transform: translate(8px,-10px) rotate(12deg); }
-  }
-  /* soft organic blob top-right */
+  .hero .scene { display: none; }
+  .hero .sun { display: none; }
+  .hero .leaf { display: none; }
+  /* Soft organic blob top-right */
   .hero::after {
     content:""; position:absolute; z-index:0;
     top: -120px; right: -120px;
     width: 520px; height: 520px;
     border-radius: 48% 52% 62% 38% / 44% 56% 44% 56%;
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.55), transparent 65%);
+    background: radial-gradient(circle at 30% 30%, rgba(30,176,161,0.1), transparent 65%);
     pointer-events:none;
-    animation: blob 18s ease-in-out infinite;
+    animation: blob 20s ease-in-out infinite;
   }
   @keyframes blob {
     0%,100% { border-radius: 48% 52% 62% 38% / 44% 56% 44% 56%; }
@@ -193,7 +157,7 @@
     font-family: "Caveat", cursive;
     font-weight: 700;
     font-size: 32px;
-    color: var(--sdb-orange-deep);
+    color: var(--sdb-teal);
     transform: rotate(-2deg);
     margin-bottom: 8px;
     margin-left: 2px;
@@ -213,16 +177,16 @@
     display: inline-flex; align-items: center; gap: 10px;
     padding: 8px 8px 8px 8px;
     border-radius: var(--r-pill);
-    background: rgba(255,255,255,0.7);
-    border: 1px solid rgba(217,106,11,0.2);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(30,176,161,0.3);
     font-weight: 700; font-size: 12px;
     letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--sdb-navy);
+    color: rgba(255,255,255,0.85);
     margin-bottom: 28px;
-    box-shadow: 0 2px 10px rgba(217,106,11,0.08);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
   }
   .hero-eyebrow .jubileum {
-    background: var(--sdb-orange);
+    background: var(--sdb-teal);
     color: #fff; font-weight: 700;
     padding: 3px 9px; border-radius: 999px;
     font-size: 11px;
@@ -234,25 +198,25 @@
     line-height: 0.98;
     letter-spacing: -0.025em;
   }
-  .hero h1 .acc { color: var(--sdb-orange); }
+  .hero h1 .acc { color: var(--sdb-teal); }
   .hero h1 .zoo {
     position: relative; display: inline-block;
-    color: var(--sdb-orange-deep);
+    color: var(--sdb-teal);
     font-style: italic;
   }
   .hero h1 .zoo::after {
     content: ""; position: absolute;
     left: -2%; right: -2%; bottom: -2px; height: 10px;
-    background: var(--sdb-orange);
+    background: var(--sdb-teal);
     border-radius: 999px;
     opacity: 0.28;
   }
-  .hero h1 { color: var(--sdb-navy); }
+  .hero h1 { color: #fff; }
   .hero-sub {
     margin-top: 28px;
     font-size: clamp(17px, 1.35vw, 20px);
     line-height: 1.6;
-    color: #5A4635;
+    color: rgba(255,255,255,0.75);
     max-width: 560px;
   }
   .hero-ctas {
@@ -268,14 +232,15 @@
     transition: transform .15s ease, background .15s ease;
     font-family: var(--font-sans);
   }
-  .btn-primary { background: var(--sdb-orange); color: #fff; }
-  .btn-primary:hover { background: var(--sdb-orange-deep); }
+  .btn-primary { background: var(--sdb-teal); color: #fff; }
+  .btn-primary:hover { background: #178A7D; }
   .btn-primary:active { transform: translateY(1px); }
   .btn-ghost {
-    background: rgba(255,255,255,0.6); color: var(--sdb-navy);
-    border: 1.5px solid rgba(0,58,80,0.2);
+    background: rgba(255,255,255,0.1); color: #fff;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
   }
-  .btn-ghost:hover { border-color: var(--sdb-navy); background: #fff; }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.15); }
   .hero .btn-ghost { backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
   .btn-dark { background: var(--sdb-navy); color: #fff; }
   .btn-dark:hover { background: var(--sdb-navy-2); }
@@ -284,17 +249,17 @@
     margin-top: 36px;
     display: flex; gap: 10px; flex-wrap: wrap;
     font-size: 13.5px; font-weight: 700;
-    color: var(--sdb-navy);
+    color: #fff;
   }
   .hero-meta span {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 9px 15px;
-    background: rgba(255,255,255,0.75);
-    border: 1px solid rgba(217,106,11,0.18);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(30,176,161,0.25);
     border-radius: var(--r-pill);
-    box-shadow: 0 2px 8px rgba(217,106,11,0.06);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   }
-  .hero-meta svg { flex: none; color: var(--sdb-orange-deep); }
+  .hero-meta svg { flex: none; color: var(--sdb-teal); }
 
   /* Hero card */
   .save-card {
@@ -303,7 +268,7 @@
     color: var(--sdb-ink);
     border-radius: var(--r-xl);
     padding: 28px 28px 26px;
-    box-shadow: 0 30px 60px rgba(100,40,10,0.18), 0 8px 20px rgba(100,40,10,0.08);
+    box-shadow: 0 30px 60px rgba(0,20,40,0.35), 0 8px 20px rgba(0,20,40,0.15);
     transform: rotate(-1.5deg);
     border: 1px solid rgba(0,0,0,0.04);
   }
@@ -311,7 +276,7 @@
     content: ""; position: absolute;
     top: -16px; left: 36px;
     width: 96px; height: 32px;
-    background: rgba(245, 130, 32, 0.35);
+    background: rgba(30,176,161,0.35);
     border-radius: 4px;
     transform: rotate(-4deg);
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
@@ -368,18 +333,18 @@
     font-size: 14px; color: var(--fg-2);
     font-weight: 700;
   }
-  .save-foot svg { color: var(--sdb-orange); flex: none; }
+  .save-foot svg { color: var(--sdb-teal); flex: none; }
   .save-hint {
     margin-top: 14px;
     font-size: 14px;
     font-weight: 600;
-    color: var(--sdb-orange-deep);
+    color: var(--sdb-teal);
     text-align: center;
     letter-spacing: 0.01em;
   }
   .save-scribble {
     position: absolute; top: 12px; right: 18px;
-    font-size: 22px; color: var(--sdb-orange);
+    font-size: 22px; color: var(--sdb-teal);
     font-weight: 700; font-style: italic;
     transform: rotate(8deg);
   }
@@ -913,7 +878,7 @@
     width: 100%;
     margin-top: 8px;
     padding: 14px 18px;
-    background: var(--sdb-orange);
+    background: var(--sdb-teal);
     color: #fff;
     border: 0;
     border-radius: var(--r-pill);
@@ -923,7 +888,7 @@
     display: inline-flex; justify-content: center; align-items: center; gap: 8px;
     transition: background .15s ease, transform .15s ease;
   }
-  .rf-submit:hover { background: var(--sdb-orange-deep); }
+  .rf-submit:hover { background: #178A7D; }
   .rf-submit:active { transform: translateY(1px); }
   .rf-embed-note {
     margin-top: 14px;
@@ -988,11 +953,16 @@
   <div class="wrap">
     <nav class="nav" aria-label="Primary">
       <a class="nav-logo" href="#top" aria-label="SDB Community Care Event">
-        <span class="dot" aria-hidden="true"></span>
-        <span>
-          <b>SDB.</b> Community Care Event
-          <small>4 of 5 sept · Ouwehands Dierenpark</small>
-        </span>
+        <svg class="sdb-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 387" aria-hidden="true">
+          <path fill="#62afc9" d="M306.62,0h-149.83C64.74,0,0,61.37,0,156.79v229.97h306.62c89.32,0,193.38-77.07,193.38-196.86C500,69.75,413.42,0,306.62,0Z"/>
+          <path fill="#fff" d="M262.19,193.09c-1.02-2.03-2.05-4.06-3.08-6.1v6.5c0,18.18-14.79,32.91-33.04,32.91h-40.24v-91.45c-6.05-.83-12.61-1.4-19.71-1.7v112.85h59.95c21.42,0,39.91-12.78,48.18-31.08-1.89-2.91-3.67-5.92-5.35-8.98-2.34-4.26-4.54-8.62-6.71-12.96h0Z"/>
+          <path fill="#fff" d="M383.89,169.4h0c6.76-6.86,11-18.43,11.21-28.75.42-20.28-16.58-36.48-36.87-36.48h-32.71c-16.59,0-30.03,13.46-29.99,30.05l.12,46.85h59.54c10.64,0,20.47,6.4,24.14,16.38,5.49,14.9-5.46,28.96-19.63,28.96h-12.67c-29.58,0-41.56-11.58-51.61-29.1-2.67-4.64-5.19-9.69-7.88-15.06-16.36-32.71-36.44-72.88-121.9-75.94-6.39-.23-20.28-.06-20.28-.06h-56.43c-21.11,0-38.82,17.04-38.43,38.15.39,21.11,17.74,36.66,38.99,36.66h26.01c10.64,0,20.47,6.4,24.15,16.38,5.49,14.9-5.46,28.96-19.63,28.96H53.25v19.71h66.63c25.55,0,45.68-23.61,39.74-50.15-4.58-20.43-23.27-34.6-44.21-34.6h-26.83c-9.98,0-18.47-7.99-18.33-17.97.15-10.49,8.74-17.43,19.29-17.43h56.26c7.05-.21,13.66-.18,19.85.05,72.99,2.71,88.88,34.36,104.22,65.04,3.95,7.89,7.94,15.86,12.82,23.19,3.62,5.42,7.75,10.48,12.74,14.91,9.39,8.39,21.81,14.5,39.66,16.37,3.97.41,7.96.61,11.96.6h12.48c22.51,0,40.82-18.31,40.82-40.82,0-13.36-6.48-28.45-16.46-35.9ZM375.79,139.52c-.18,10.43-8.72,21.08-19.2,21.08h-40.47v-27.05c0-5.68,5.07-11.48,10.75-11.48h32.75c9.07,0,16.32,8.38,16.17,17.45Z"/>
+          <path fill="#fff" d="M264.3,289.94c0-3.19,1.06-4.56,3.12-7.38l19.7-27.15h-17.64c-3.12,0-4.71-1.22-4.71-4.34v-.68c0-2.97,1.6-4.33,4.71-4.33h25.1c4.18,0,5.78,2.21,5.78,4.56v.68c0,3.19-1.29,4.79-3.12,7.3l-20,27.3h18.86c3.19,0,4.87,1.22,4.87,4.33v.68c0,2.97-1.67,4.33-4.87,4.33h-26.08c-4.11,0-5.7-2.28-5.7-4.64v-.68Z"/>
+          <path fill="#fff" d="M320.96,257.31c10.72,0,17.87,7.6,17.87,19.54s-7.15,19.32-18.02,19.32-17.95-7.6-17.95-19.47,7.15-19.39,18.1-19.39ZM320.88,265.52c-5.02,0-8.29,3.8-8.29,11.18s3.27,11.18,8.29,11.18,8.14-3.88,8.14-11.1-3.19-11.26-8.14-11.26Z"/>
+          <path fill="#fff" d="M367.59,263.62c0,4.64-3.27,6.08-3.42,6.01-.91-1.06-2.28-1.9-4.18-1.9-4.26,0-6.16,3.95-6.16,11.48v11.41c0,3.57-1.67,4.94-4.56,4.94h-1.06c-2.89,0-4.64-1.29-4.64-4.94v-31.79c0-.38,1.67-1.14,3.73-1.14,2.43,0,4.33,1.06,5.17,3.95.3,1.06.53,2.28.61,3.57,1.14-4.94,4.03-7.99,8.21-7.99,3.95,0,6.31,2.59,6.31,6.39Z"/>
+          <path fill="#fff" d="M367.45,301.19c0-4.79,4.26-8.29,10.8-9.73-1.06-.76-1.83-1.98-1.83-3.57,0-1.83,1.22-3.5,2.89-4.26-6.24-1.67-9.81-6.31-9.81-12.4,0-8.14,6.54-13.92,15.44-13.92,2.51,0,4.87.53,6.92,1.52l1.6-2.97c1.29-2.89,2.97-3.95,4.94-3.88,3.65.08,5.25,4.33,5.02,4.72l-5.86,6.08c1.98,2.28,3.12,5.1,3.12,8.37,0,7.6-5.7,12.93-14.3,13.16h-1.37c-.3.38-.3.99.15,1.44.53,1.52,3.73,1.83,8.37,3.27,4.64,1.52,9.51,4.26,9.51,10.27,0,6.92-6.46,11.71-18.56,11.71s-17.03-3.57-17.03-9.81ZM393.23,300.66c0-2.21-2.13-3.42-5.1-4.33-.99-.3-2.05-.61-3.12-.84-4.56.68-7.99,2.66-7.99,5.55,0,2.74,2.74,4.34,7.91,4.34s8.29-1.67,8.29-4.72ZM391.1,271.08c0-4.64-2.36-7.07-6.08-7.07s-6.01,2.43-6.01,7.07,2.43,7.22,6.08,7.22,6.01-2.51,6.01-7.22Z"/>
+          <path fill="#fff" d="M409.37,284.46v-18.1h-1.75c-2.59,0-3.8-1.37-3.8-3.73v-.91c0-2.21,1.14-3.65,3.73-3.65h1.83v-4.71c0-3.42,1.67-4.94,4.56-4.94h1.06c2.89,0,4.64,1.29,4.64,4.94v4.71h5.48c2.51,0,3.8,1.22,3.8,3.57v.91c0,2.51-1.37,3.8-3.8,3.8h-5.63v15.89c0,3.88,1.14,5.25,3.42,5.25,1.75,0,3.27-.91,4.18-2.21.38,0,2.21,1.37,2.21,4.26,0,1.6-.53,3.04-1.9,4.26-1.52,1.44-3.88,2.36-7.15,2.36-7,0-10.87-3.73-10.87-11.71Z"/>
+        </svg>
       </a>
       <div class="nav-links">
         <a href="#programma">Programma</a>
@@ -1018,14 +988,14 @@
   <span class="glow g2" aria-hidden="true"></span>
   <span class="glow g3" aria-hidden="true"></span>
 
-  <!-- Connecting ribbon arc (abstract "coming together") -->
+  <!-- Connecting ribbon arc — teal/navy palette -->
   <svg class="ribbon" viewBox="0 0 1440 280" preserveAspectRatio="none" aria-hidden="true">
     <defs>
       <linearGradient id="ribbonGrad" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%" stop-color="#F58220" stop-opacity="0"/>
-        <stop offset="40%" stop-color="#F58220" stop-opacity="0.35"/>
-        <stop offset="60%" stop-color="#F5B628" stop-opacity="0.4"/>
-        <stop offset="100%" stop-color="#F5B628" stop-opacity="0"/>
+        <stop offset="0%" stop-color="#1EB0A1" stop-opacity="0"/>
+        <stop offset="40%" stop-color="#1EB0A1" stop-opacity="0.3"/>
+        <stop offset="60%" stop-color="#0097C5" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#0097C5" stop-opacity="0"/>
       </linearGradient>
     </defs>
     <path d="M -50 180 C 260 60, 520 260, 820 140 S 1280 40, 1520 160"
@@ -1034,34 +1004,16 @@
           stroke="url(#ribbonGrad)" stroke-width="14" fill="none" stroke-linecap="round" opacity="0.5"/>
   </svg>
 
-  <!-- Floating organic "leaves" (abstract) -->
-  <svg class="leaf l1" width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7 6 5 11 7 16c1 2 3 4 5 6 2-2 4-4 5-6 2-5 0-10-5-14z"/></svg>
-  <svg class="leaf l2" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7 6 5 11 7 16c1 2 3 4 5 6 2-2 4-4 5-6 2-5 0-10-5-14z"/></svg>
-  <svg class="leaf l3" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7 6 5 11 7 16c1 2 3 4 5 6 2-2 4-4 5-6 2-5 0-10-5-14z"/></svg>
-  <svg class="leaf l4" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7 6 5 11 7 16c1 2 3 4 5 6 2-2 4-4 5-6 2-5 0-10-5-14z"/></svg>
-
-  <!-- Distant rolling hills (softer, farthest back) -->
-  <svg class="hills" viewBox="0 0 1440 360" preserveAspectRatio="none" aria-hidden="true">
+  <!-- Clean wave transition at bottom of hero -->
+  <svg class="hills" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
     <defs>
-      <linearGradient id="hillA" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#F5B628" stop-opacity="0.35"/>
-        <stop offset="100%" stop-color="#D96A0B" stop-opacity="0.55"/>
-      </linearGradient>
-      <linearGradient id="hillB" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#D96A0B" stop-opacity="0.55"/>
-        <stop offset="100%" stop-color="#7A3F14" stop-opacity="0.75"/>
-      </linearGradient>
-      <linearGradient id="hillC" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#003A50" stop-opacity="0.55"/>
-        <stop offset="100%" stop-color="#00293A" stop-opacity="0.85"/>
+      <linearGradient id="waveA" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1EB0A1" stop-opacity="0.12"/>
+        <stop offset="100%" stop-color="#00293A" stop-opacity="0"/>
       </linearGradient>
     </defs>
-    <!-- far back: warm wash -->
-    <path fill="url(#hillA)" d="M0 160 C 220 80, 420 140, 640 120 C 880 98, 1060 170, 1260 140 C 1360 126, 1420 150, 1440 145 L1440 360 L0 360 Z"/>
-    <!-- mid: deeper warm -->
-    <path fill="url(#hillB)" d="M0 230 C 180 160, 360 210, 580 200 C 820 188, 980 240, 1180 220 C 1320 206, 1400 230, 1440 225 L1440 360 L0 360 Z"/>
-    <!-- near: navy anchor -->
-    <path fill="url(#hillC)" d="M0 300 C 160 260, 320 290, 520 282 C 760 272, 920 310, 1120 298 C 1290 286, 1380 312, 1440 308 L1440 360 L0 360 Z"/>
+    <path fill="url(#waveA)" d="M0 80 C 360 20, 720 140, 1080 60 C 1260 20, 1380 80, 1440 60 L1440 200 L0 200 Z"/>
+    <path fill="rgba(30,176,161,0.07)" d="M0 120 C 300 60, 600 160, 960 100 C 1200 60, 1380 120, 1440 100 L1440 200 L0 200 Z"/>
   </svg>
 
   <!-- Subtle zoo-silhouette strip (animals as distant shadows in warm light) -->
