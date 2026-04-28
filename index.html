@@ -246,21 +246,38 @@
 
   .hero-meta {
     margin-top: 36px;
-    display: flex; gap: 10px; flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
     font-size: 13.5px; font-weight: 700;
     color: #fff;
+    max-width: 560px;
   }
   .hero-meta span {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 9px 15px;
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 14px;
     background: rgba(255,255,255,0.08);
     border: 1px solid rgba(30,176,161,0.25);
-    border-radius: var(--r-pill);
+    border-radius: var(--r-md);
     box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    font-size: 13px;
   }
   .hero-meta svg { flex: none; color: var(--sdb-teal); }
 
-  /* Hero card */
+  .hero-cta-sub {
+    margin-top: 16px;
+  }
+  .hero-cta-sub a {
+    font-size: 14px; font-weight: 700;
+    color: rgba(255,255,255,0.65);
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    padding-bottom: 2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  .hero-cta-sub a:hover {
+    color: #fff;
+    border-color: rgba(255,255,255,0.6);
+  }
   .save-card {
     position: relative;
     background: #fff;
@@ -895,7 +912,53 @@
     text-align: center;
   }
 
-  /* ============ FOOTER ============ */
+  /* Intent toggle */
+  .intent-toggle {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 8px; margin-bottom: 22px;
+    background: var(--sdb-paper);
+    border: 1px solid var(--sdb-line);
+    border-radius: var(--r-md);
+    padding: 6px;
+  }
+  .intent-btn {
+    padding: 12px 14px;
+    border-radius: var(--r-sm);
+    font-weight: 700; font-size: 14px;
+    cursor: pointer; border: 0;
+    background: transparent;
+    color: var(--fg-2);
+    font-family: var(--font-sans);
+    transition: background .15s ease, color .15s ease;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .intent-btn .intent-icon {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--sdb-line);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 900;
+    transition: background .15s ease, color .15s ease;
+    flex: none;
+  }
+  .intent-btn.active {
+    background: #fff;
+    color: var(--sdb-navy);
+    box-shadow: 0 2px 8px rgba(0,58,80,0.1);
+  }
+  .intent-btn.active .intent-icon {
+    background: var(--sdb-teal);
+    color: #fff;
+  }
+  /* Ghost submit variant for twijfel form */
+  .rf-submit--ghost {
+    background: transparent;
+    color: var(--sdb-teal);
+    border: 2px solid var(--sdb-teal);
+  }
+  .rf-submit--ghost:hover {
+    background: var(--sdb-teal);
+    color: #fff;
+  }
   footer {
     background: var(--sdb-navy-2);
     color: #B8CCD4;
@@ -970,7 +1033,7 @@
         <a href="faq.html">Veelgestelde vragen</a>
       </div>
       <a class="nav-cta" href="#aanmelden">
-        Aanmelden
+        Ik wil erbij
         <svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
       </a>
     </nav>
@@ -1364,13 +1427,16 @@
         Al 50 jaar werkt SDB samen met organisaties in de zorg en kinderopvang. Dit jubileum vieren we niet met onszelf, maar met jou, je collega's, je cliënten en hun naasten. Een dag vol inspiratie, ontmoeting en genieten in Ouwehands Dierenpark.
       </p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#aanmelden">
-          Meld je aan
+        <a class="btn btn-primary" href="#aanmelden" data-intent="erbij">
+          Ik ben erbij
           <svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
         </a>
-        <a class="btn btn-ghost" href="#programma">
-          Bekijk het programma
+        <a class="btn btn-ghost" href="#aanmelden" data-intent="twijfel">
+          Ik twijfel nog
         </a>
+      </div>
+      <div class="hero-cta-sub">
+        <a href="#programma">Bekijk eerst het programma →</a>
       </div>
       <div class="hero-meta">
         <span>
@@ -1709,71 +1775,121 @@
   <div class="wrap">
     <div class="register-card">
       <div>
-        <div class="eyebrow" style="color: var(--event-sun);">Aanmelden</div>
-        <h2>Doe <span class="sun">mee</span>. Kom<br/>naar <span class="acc">the Zoo</span>.</h2>
-        <p class="lede">Aanmelden kan direct via het formulier hiernaast. Vertel ons wie je bent en met hoeveel mensen je komt — dan zorgen wij dat alles klaarstaat.</p>
-        <ul class="register-steps">
+        <div class="eyebrow" style="color: var(--sdb-teal);">Aanmelden</div>
+        <h2>Kom naar <span class="acc">the Zoo</span>.<br/>Op jouw manier.</h2>
+        <p class="lede">Of je er zeker van bent of nog even afwacht — laat het ons weten. We zorgen dat je op de hoogte blijft en niets mist.</p>
+        <ul class="register-steps" id="steps-erbij">
           <li><span class="n">1</span><span>Vul je gegevens in — naam, organisatie, aantal personen.</span></li>
           <li><span class="n">2</span><span>Je ontvangt direct een bevestiging per e-mail.</span></li>
           <li><span class="n">3</span><span>Kort voor het event krijg je het definitieve programma.</span></li>
         </ul>
+        <ul class="register-steps" id="steps-twijfel" style="display:none;">
+          <li><span class="n">1</span><span>Laat je naam en e-mail achter — geen verplichtingen.</span></li>
+          <li><span class="n">2</span><span>We sturen je updates zodra het programma compleet is.</span></li>
+          <li><span class="n">3</span><span>Definitief beslissen kan altijd nog — wij herinneren je er vriendelijk aan.</span></li>
+        </ul>
       </div>
 
       <div class="register-form">
-        <h3>Ik doe mee</h3>
-        <p class="sub">Het formulier hieronder is een voorbeeldweergave. Bij livegang wordt hier het Zoho Forms–formulier geëmbed.</p>
 
-        <!--
-          ============================================
-          ZOHO FORMS EMBED — vervang de <form> hieronder
-          door de door Zoho geleverde iframe of script.
-          Voorbeeld:
-          <iframe src="https://forms.zohopublic.eu/sdb/form/CommunityCareEvent/formperma/XXXXX"
-                  style="border:0; width:100%; min-height:720px;"></iframe>
-          ============================================
-        -->
-
-        <form onsubmit="event.preventDefault(); this.querySelector('.rf-submit').innerText='Bedankt — we mailen je snel!';">
-          <div class="rf-group">
-            <label for="f-name">Voor- en achternaam</label>
-            <input id="f-name" type="text" required placeholder="Jouw naam" />
-          </div>
-          <div class="rf-row">
-            <div class="rf-group">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" type="email" required placeholder="jij@voorbeeld.nl" />
-            </div>
-            <div class="rf-group">
-              <label for="f-org">Organisatie</label>
-              <input id="f-org" type="text" placeholder="Bijv. Zorggroep X" />
-            </div>
-          </div>
-          <div class="rf-row">
-            <div class="rf-group">
-              <label for="f-sector">Sector</label>
-              <select id="f-sector" required>
-                <option value="">Kies…</option>
-                <option>Gehandicaptenzorg</option>
-                <option>Jeugdzorg</option>
-                <option>VVT / Ouderenzorg</option>
-                <option>Andere sector</option>
-              </select>
-            </div>
-            <div class="rf-group">
-              <label for="f-day">Welke dag?</label>
-              <select id="f-day" required>
-                <option value="">Kies…</option>
-                <option>Vrijdag 4 september</option>
-                <option>Zaterdag 5 september</option>
-              </select>
-            </div>
-          </div>
-          <button type="submit" class="rf-submit">
-            Meld mij aan
-            <svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        <!-- Intent toggle -->
+        <div class="intent-toggle">
+          <button class="intent-btn active" data-intent="erbij">
+            <span class="intent-icon">✓</span> Ik ben erbij
           </button>
-          <div class="rf-embed-note">Bij livegang: veilig en AVG-proof via Zoho Forms.</div>
-        </form>
+          <button class="intent-btn" data-intent="twijfel">
+            <span class="intent-icon">?</span> Ik twijfel nog
+          </button>
+        </div>
+
+        <!-- Form: Ik ben erbij -->
+        <div id="form-erbij">
+          <h3>Reserveer je plek</h3>
+          <p class="sub">Bij livegang: Zoho Forms iframe hier. Onderstaande is een voorbeeldweergave.</p>
+          <!--
+            ZOHO FORMS EMBED (intent: aanmelding)
+            <iframe src="https://forms.zohopublic.eu/sdb/form/CommunityCareEvent/formperma/XXXXX"
+                    style="border:0; width:100%; min-height:520px;"></iframe>
+          -->
+          <form onsubmit="event.preventDefault(); this.querySelector('.rf-submit').innerText='Geregeld — tot 4 of 5 september!';">
+            <div class="rf-group">
+              <label for="f-name">Voor- en achternaam</label>
+              <input id="f-name" type="text" required placeholder="Jouw naam" />
+            </div>
+            <div class="rf-row">
+              <div class="rf-group">
+                <label for="f-email">E-mail</label>
+                <input id="f-email" type="email" required placeholder="jij@voorbeeld.nl" />
+              </div>
+              <div class="rf-group">
+                <label for="f-org">Organisatie</label>
+                <input id="f-org" type="text" placeholder="Bijv. Zorggroep X" />
+              </div>
+            </div>
+            <div class="rf-row">
+              <div class="rf-group">
+                <label for="f-sector">Sector</label>
+                <select id="f-sector" required>
+                  <option value="">Kies…</option>
+                  <option>Gehandicaptenzorg</option>
+                  <option>Jeugdzorg</option>
+                  <option>VVT / Ouderenzorg</option>
+                  <option>Andere sector</option>
+                </select>
+              </div>
+              <div class="rf-group">
+                <label for="f-day">Welke dag?</label>
+                <select id="f-day" required>
+                  <option value="">Kies…</option>
+                  <option>Vrijdag 4 september</option>
+                  <option>Zaterdag 5 september</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="rf-submit">
+              Ik ben erbij
+              <svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </button>
+            <div class="rf-embed-note">Veilig en AVG-proof via Zoho Forms.</div>
+          </form>
+        </div>
+
+        <!-- Form: Ik twijfel nog -->
+        <div id="form-twijfel" style="display:none;">
+          <h3>Houd me op de hoogte</h3>
+          <p class="sub">Je hoeft nog niets te beslissen. We mailen je als het programma compleet is — dan kun je alsnog definitief ja zeggen.</p>
+          <!--
+            ZOHO FORMS EMBED (intent: nurture)
+            <iframe src="https://forms.zohopublic.eu/sdb/form/CommunityCareEventNurture/formperma/XXXXX"
+                    style="border:0; width:100%; min-height:320px;"></iframe>
+          -->
+          <form onsubmit="event.preventDefault(); this.querySelector('.rf-submit').innerText='Genoteerd — we houden je op de hoogte!';">
+            <div class="rf-group">
+              <label for="t-name">Voor- en achternaam</label>
+              <input id="t-name" type="text" required placeholder="Jouw naam" />
+            </div>
+            <div class="rf-group">
+              <label for="t-email">E-mail</label>
+              <input id="t-email" type="email" required placeholder="jij@voorbeeld.nl" />
+            </div>
+            <div class="rf-group">
+              <label for="t-reden">Wat houdt je nog tegen? <span style="font-weight:400;color:var(--fg-2)">(optioneel)</span></label>
+              <select id="t-reden">
+                <option value="">Kies…</option>
+                <option>Ik weet nog niet welke dag uitkomt</option>
+                <option>Ik moet het intern afstemmen</option>
+                <option>Ik weet nog niet of mijn groep kan</option>
+                <option>Ik wil eerst meer weten over het programma</option>
+                <option>Anders</option>
+              </select>
+            </div>
+            <button type="submit" class="rf-submit rf-submit--ghost">
+              Zet me op de lijst
+            </button>
+            <div class="rf-embed-note">Geen spam. Alleen updates over dit event.</div>
+          </form>
+        </div>
+
       </div>
     </div>
   </div>
@@ -1821,6 +1937,29 @@
       const key = t.dataset.tab;
       tabs.forEach(x => x.classList.toggle('active', x === t));
       panels.forEach(p => p.classList.toggle('active', p.dataset.aud === key));
+    });
+  });
+
+  // Intent toggle (formulier)
+  function switchIntent(intent) {
+    const isErbij = intent === 'erbij';
+    document.getElementById('form-erbij').style.display = isErbij ? '' : 'none';
+    document.getElementById('form-twijfel').style.display = isErbij ? 'none' : '';
+    document.getElementById('steps-erbij').style.display = isErbij ? '' : 'none';
+    document.getElementById('steps-twijfel').style.display = isErbij ? 'none' : '';
+    document.querySelectorAll('.intent-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.intent === intent);
+    });
+  }
+  document.querySelectorAll('.intent-btn').forEach(b => {
+    b.addEventListener('click', () => switchIntent(b.dataset.intent));
+  });
+
+  // Hero buttons route to correct intent
+  document.querySelectorAll('a[data-intent]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const intent = a.dataset.intent;
+      if (intent) setTimeout(() => switchIntent(intent), 50);
     });
   });
 
