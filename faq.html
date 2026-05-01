@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Veelgestelde vragen · SDB Community Care Event @ The Zoo</title>
-<meta name="description" content="Antwoorden op alle vragen over het SDB Community Care Event @ The Zoo op 4 en 5 september 2026." />
+<meta name="description" content="Antwoorden op alle vragen over het SDB Community Care Event in de dierentuin op 4 en 5 september 2026." />
 <link rel="stylesheet" href="colors_and_type.css" />
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,61 +16,116 @@
   .wrap { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 32px; }
   @media (max-width: 640px) { .wrap { padding: 0 20px; } }
 
-  /* NAV — same as landing */
+  /* NAV — identical to homepage */
   .nav-outer {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(0, 58, 80, 0.92);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    color: #fff;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: #fff;
+    color: var(--sdb-navy);
+    border-bottom: 1px solid var(--sdb-line);
+    box-shadow: 0 1px 8px rgba(0,58,80,0.06);
   }
   .nav-outer .wrap { max-width: 1240px; }
   .nav {
     display: flex; align-items: center; justify-content: space-between;
     height: 72px;
   }
-  .nav-logo {
-    display: flex; align-items: center; gap: 10px;
-    font-weight: 700; font-size: 18px;
-    line-height: 1.1;
-  }
-  .nav-logo .dot {
-    width: 10px; height: 10px; border-radius: 50%;
-    background: var(--sdb-orange);
-    box-shadow: 0 0 0 4px rgba(245,130,32,0.18);
-  }
-  .nav-logo small {
-    display: block; font-size: 11px; font-weight: 700;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
-  }
+  .nav-logo { display: flex; align-items: center; line-height: 1; }
+  .nav-logo img.sdb-logo { height: 56px; width: auto; display: block; }
   .nav-links {
-    display: flex; gap: 28px;
-    font-weight: 400; font-size: 15px;
-    color: #D6E3E9;
+    display: flex; gap: 24px;
+    font-weight: 700; font-size: 15px;
+    color: var(--sdb-navy);
   }
-  .nav-links a:hover, .nav-links a.current { color: #fff; }
-  .nav-links a.current { border-bottom: 2px solid var(--sdb-orange); padding-bottom: 4px; }
+  .nav-links a { color: var(--sdb-navy); }
+  .nav-links a:hover, .nav-links a.current { color: var(--sdb-teal); }
+  .nav-links a.current { border-bottom: 2px solid var(--sdb-teal); padding-bottom: 4px; }
   .nav-cta {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 11px 20px;
-    background: var(--sdb-orange);
+    background: var(--sdb-teal);
     color: #fff; border-radius: var(--r-pill);
     font-weight: 700; font-size: 14px;
+    white-space: nowrap;
+    transition: background .15s ease, transform .15s ease;
   }
-  .nav-cta:hover { background: var(--sdb-orange-deep); }
-  @media (max-width: 820px) { .nav-links { display: none; } }
+  .nav-cta:hover { background: #178A7D; }
+  .nav-cta:active { transform: translateY(1px); }
+  .nav-burger {
+    display: none;
+    flex-direction: column; justify-content: center; align-items: center;
+    gap: 5px; width: 40px; height: 40px;
+    background: none; border: none; cursor: pointer; padding: 4px;
+    border-radius: 8px; transition: background .15s ease;
+  }
+  .nav-burger:hover { background: var(--sdb-paper); }
+  .nav-burger span {
+    display: block; width: 22px; height: 2px;
+    background: var(--sdb-navy); border-radius: 2px;
+    transition: transform .25s ease, opacity .25s ease;
+    transform-origin: center;
+  }
+  .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-burger.open span:nth-child(2) { opacity: 0; }
+  .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-drawer {
+    display: none; position: fixed;
+    top: 72px; left: 0; right: 0; bottom: 0;
+    background: #fff; z-index: 49;
+    overflow-y: auto; padding: 24px 20px 40px;
+    flex-direction: column; gap: 4px;
+    border-top: 1px solid var(--sdb-line);
+  }
+  .nav-drawer.open { display: flex; }
+  .nav-drawer a {
+    display: block; padding: 14px 16px;
+    font-size: 17px; font-weight: 700;
+    color: var(--sdb-navy); border-radius: 14px;
+    transition: background .15s ease, color .15s ease;
+  }
+  .nav-drawer a:hover { background: var(--sdb-paper); color: var(--sdb-teal); }
+  .nav-drawer .drawer-cta {
+    margin-top: 16px; display: flex;
+    background: var(--sdb-teal); color: #fff;
+    justify-content: center; padding: 16px;
+    border-radius: 999px; font-size: 16px; font-weight: 700;
+  }
+  .nav-drawer .drawer-cta:hover { background: #178A7D; color: #fff; }
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-burger { display: flex; }
+  }
 
-  /* HEADER */
+  /* HEADER — matches homepage hero */
   .page-head {
-    background:
-      radial-gradient(ellipse 600px 400px at 90% 10%, rgba(245,182,40,0.16), transparent 60%),
-      radial-gradient(ellipse 500px 380px at 5% 110%, rgba(245,130,32,0.18), transparent 60%),
-      linear-gradient(180deg, #003A50 0%, #00293A 100%);
+    position: relative;
+    overflow: hidden;
     color: #fff;
     padding: 80px 0 96px;
   }
+  .page-head::before {
+    content: "";
+    position: absolute; inset: 0; z-index: 0;
+    background-image: url('dierentuin-header-v1.jpeg');
+    background-size: 120%;
+    background-position: center 35%;
+    filter: blur(3px) brightness(0.7);
+    transform: scale(1.05);
+  }
+  .page-head::after {
+    content: "";
+    position: absolute; inset: 0; z-index: 1;
+    background:
+      linear-gradient(
+        105deg,
+        rgba(0, 20, 30, 0.38) 0%,
+        rgba(0, 40, 56, 0.30) 30%,
+        rgba(140, 65, 8, 0.45) 62%,
+        rgba(205, 98, 8, 0.62) 100%
+      );
+    pointer-events: none;
+  }
+  .page-head .wrap { position: relative; z-index: 2; }
   .page-head .crumbs {
     font-size: 13px; font-weight: 700;
     letter-spacing: 0.14em; text-transform: uppercase;
@@ -187,85 +242,51 @@
   }
   .faq-item .answer a:hover { color: var(--sdb-orange); }
 
-  /* still-question band */
-  .still {
-    padding: 20px 0 100px;
-  }
-  .still-card {
-    background:
-      radial-gradient(ellipse at 110% -10%, rgba(30,176,161,0.3), transparent 55%),
-      radial-gradient(ellipse at -10% 110%, rgba(245,130,32,0.28), transparent 55%),
-      linear-gradient(135deg, #004A66 0%, var(--sdb-navy) 100%);
-    color: #fff;
-    border-radius: var(--r-xl);
-    padding: 48px 56px;
-    display: grid; grid-template-columns: 1.3fr auto; align-items: center;
-    gap: 32px;
-  }
-  @media (max-width: 700px) { .still-card { grid-template-columns: 1fr; padding: 36px 28px; } }
-  .still-card h2 {
-    font-weight: 700; font-size: clamp(24px, 2.4vw, 32px);
-    letter-spacing: -0.01em; line-height: 1.15;
-  }
-  .still-card p {
-    margin-top: 10px;
-    color: #BFD4DB; font-size: 16px; line-height: 1.55;
-  }
-  .still-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 14px 22px;
-    border-radius: var(--r-pill);
-    font-weight: 700; font-size: 15px;
-    cursor: pointer; border: 0;
-    font-family: var(--font-sans);
-    transition: background .15s ease;
-  }
-  .btn-primary { background: var(--sdb-orange); color: #fff; }
-  .btn-primary:hover { background: var(--sdb-orange-deep); }
-  .btn-ghost {
-    background: transparent; color: #fff;
-    border: 1.5px solid rgba(255,255,255,0.3);
-  }
-  .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.06); }
-
-  /* FOOTER */
+  /* FOOTER — identical to homepage */
   footer {
     background: var(--sdb-navy-2);
-    color: #B8CCD4;
-    padding: 56px 0 32px;
+    color: #fff;
+    padding: 80px 0 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
   }
-  footer .wrap { max-width: 1240px; }
-  .foot-grid {
-    display: grid; grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 48px;
-    padding-bottom: 32px;
+  .contact-section {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: center;
+    padding-bottom: 48px;
     border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 28px;
   }
-  @media (max-width: 900px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 540px) { .foot-grid { grid-template-columns: 1fr; } }
-  .foot-brand .logo {
-    display: flex; align-items: center; gap: 10px;
-    font-weight: 700; color: #fff; font-size: 20px;
-    margin-bottom: 14px;
+  @media (max-width: 700px) { .contact-section { grid-template-columns: 1fr; gap: 36px; } }
+  .contact-copy h2 {
+    font-weight: 700; font-size: clamp(26px, 2.8vw, 38px);
+    line-height: 1.1; letter-spacing: -0.015em;
+    margin: 12px 0 16px;
   }
-  .foot-brand .logo .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--sdb-orange); }
-  .foot-brand .logo .cares { color: var(--sdb-orange); }
-  .foot-brand p { font-size: 14px; line-height: 1.6; max-width: 38ch; color: #8BA5B0; }
-  .foot-col h5 {
-    color: #fff; font-weight: 700; font-size: 13px;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    margin-bottom: 14px;
+  .contact-copy p {
+    font-size: 16px; line-height: 1.65;
+    color: rgba(255,255,255,0.65); max-width: 46ch;
   }
-  .foot-col a, .foot-col span {
-    display: block; font-size: 14px; line-height: 2; color: #A0B6BF;
+  .contact-details { display: flex; flex-direction: column; gap: 16px; }
+  .contact-item {
+    display: flex; align-items: center; gap: 16px;
+    padding: 20px 24px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(30,176,161,0.2);
+    border-radius: 22px;
+    font-weight: 700; font-size: 18px; color: #fff;
+    transition: background .15s ease, border-color .15s ease;
   }
-  .foot-col a:hover { color: #fff; }
+  .contact-item:hover { background: rgba(30,176,161,0.1); border-color: rgba(30,176,161,0.4); }
+  .contact-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(30,176,161,0.15); color: var(--sdb-teal);
+    display: grid; place-items: center; flex: none;
+  }
   .foot-bot {
-    padding-top: 24px;
     display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
     font-size: 13px; color: #6A8591;
   }
+  .foot-bot a:hover { color: #fff; }
 
   .ic { width: 20px; height: 20px; stroke-width: 2; }
 </style>
@@ -276,33 +297,48 @@
 <div class="nav-outer">
   <div class="wrap">
     <nav class="nav">
-      <a class="nav-logo" href="index.html">
-        <span class="dot"></span>
-        <span>
-          <b>SDB.</b> Community Care Event
-          <small>4 &amp; 5 sept · Ouwehands Dierenpark</small>
-        </span>
+      <a class="nav-logo" href="index.html" aria-label="SDB Community Care Event">
+        <img src="sdb-ccevent-dierentuin-logo.png" alt="SDB Community Care Event — in de dierentuin" class="sdb-logo" />
       </a>
       <div class="nav-links">
-        <a href="index.html#programma">Programma</a>
+        <a href="index.html#waarom">Waarom</a>
         <a href="index.html#voor-wie">Voor wie</a>
-        <a href="index.html#praktisch">Praktisch</a>
+        <a href="index.html#programma">Programma</a>
+        <a href="index.html#ouwehands">Over Ouwehands</a>
         <a href="faq.html" class="current">Veelgestelde vragen</a>
+        <a href="#contact">Contact</a>
       </div>
       <a class="nav-cta" href="index.html#aanmelden">
-        Aanmelden
+        Ik ben erbij
         <svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
       </a>
+      <button class="nav-burger" aria-label="Menu openen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </div>
 </div>
+
+<!-- Mobile nav drawer -->
+<nav class="nav-drawer" aria-label="Mobiel menu">
+  <a href="index.html#waarom">Waarom</a>
+  <a href="index.html#voor-wie">Voor wie</a>
+  <a href="index.html#programma">Programma</a>
+  <a href="index.html#ouwehands">Over Ouwehands</a>
+  <a href="faq.html" class="current">Veelgestelde vragen</a>
+  <a href="index.html#contact">Contact</a>
+  <a class="drawer-cta" href="index.html#aanmelden">
+    Ik ben erbij
+    <svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+  </a>
+</nav>
 
 <!-- HEADER -->
 <section class="page-head">
   <div class="wrap">
     <div class="crumbs"><a href="index.html">← Terug naar home</a></div>
     <h1>Veelgestelde <span class="hl">vragen.</span></h1>
-    <p class="lede">Alles wat je wil weten over het SDB Community Care Event @ The Zoo op 4 en 5 september 2026. Staat jouw vraag er niet tussen? Stuur ons een bericht — we helpen je graag.</p>
+    <p class="lede">Alles wat je wil weten over het SDB Community Care Event in de dierentuin op 4 en 5 september 2026. Staat jouw vraag er niet tussen? Stuur ons een bericht, we helpen je graag.</p>
   </div>
 </section>
 
@@ -562,51 +598,28 @@
   </div>
 </section>
 
-<!-- STILL A QUESTION -->
-<section class="still">
-  <div class="wrap">
-    <div class="still-card">
-      <div>
-        <h2>Nog een vraag?</h2>
-        <p>We helpen je graag persoonlijk. Mail ons op <a href="/cdn-cgi/l/email-protection#7f1a091a110b0c3f0c1b1d180d101a0f511113" style="color:#F5B628; border-bottom: 1px solid rgba(245,182,40,0.4);"><span class="__cf_email__" data-cfemail="0c697a6962787f4c7f686e6b7e63697c226260">[email&#160;protected]</span></a> of bel 0348 - 43 75 75.</p>
-      </div>
-      <div class="still-btns">
-        <a class="btn btn-primary" href="index.html#aanmelden">
-          Direct aanmelden
-          <svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn-ghost" href="/cdn-cgi/l/email-protection#f89d8e9d968c8bb88b9c9a9f8a979d88d69694">
-          Mail het team
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FOOTER -->
-<footer>
+<footer id="contact">
   <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <div class="logo">
-          <span class="dot"></span>
-          <span><b>SDB.</b> software that <span class="cares">cares</span></span>
-        </div>
-        <p>Al 50 jaar bouwt SDB software waarmee zorg- en welzijnsorganisaties hun werk beter kunnen doen. Van ECD tot rooster, van HR tot cliëntportaal.</p>
+    <div class="contact-section">
+      <div class="contact-copy">
+        <div class="eyebrow" style="color: var(--sdb-teal); font-weight:700; font-size:13px; letter-spacing:0.14em; text-transform:uppercase;">Contact</div>
+        <h2>Nog een vraag?<br/>We denken graag mee.</h2>
+        <p>Heb je vragen over het event, wil je de mogelijkheden bespreken voor jouw organisatie of groep, of wil je gewoon even weten wat je kunt verwachten? Neem gerust contact op — we helpen je graag verder.</p>
       </div>
-      <div class="foot-col">
-        <h5>Het event</h5>
-        <a href="index.html#programma">Programma</a>
-        <a href="index.html#voor-wie">Voor wie</a>
-        <a href="index.html#praktisch">Praktisch</a>
-        <a href="faq.html">Veelgestelde vragen</a>
-        <a href="index.html#aanmelden">Aanmelden</a>
-      </div>
-      <div class="foot-col">
-        <h5>Contact</h5>
-        <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="741102111a00073407101613061b11045a1a18">[email&#160;protected]</a></span>
-        <span>0348 - 43 75 75</span>
-        <a href="https://www.sdbgroep.nl" target="_blank" rel="noopener">sdbgroep.nl</a>
+      <div class="contact-details">
+        <a class="contact-item" href="mailto:event@sdbzorgt.nl">
+          <span class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </span>
+          event@sdbzorgt.nl
+        </a>
+        <a class="contact-item" href="tel:+31883888300">
+          <span class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.9 14 19.79 19.79 0 0 1 1.85 5.37 2 2 0 0 1 3.84 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+          </span>
+          088 – 38 88 300
+        </a>
       </div>
     </div>
     <div class="foot-bot">
@@ -616,5 +629,24 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+<script>
+  // Hamburger menu
+  const burger = document.querySelector('.nav-burger');
+  const drawer = document.querySelector('.nav-drawer');
+  burger.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  drawer.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+</body>
 </html>
