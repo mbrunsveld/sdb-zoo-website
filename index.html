@@ -156,19 +156,17 @@
     overflow: hidden;
   }
 
-  /* Warm orange gradient overlay */
+  /* Transparent-left orange-right gradient overlay */
   .hero::after {
     content: "";
     position: absolute; inset: 0; z-index: 1;
     background:
-      radial-gradient(ellipse 80% 60% at 0% 50%, rgba(180, 70, 10, 0.72) 0%, transparent 65%),
-      radial-gradient(ellipse 60% 80% at 100% 20%, rgba(210, 100, 10, 0.45) 0%, transparent 60%),
       linear-gradient(
-        135deg,
-        rgba(140, 55, 10, 0.55) 0%,
-        rgba(170, 75, 15, 0.40) 40%,
-        rgba(200, 95, 10, 0.30) 70%,
-        rgba(220, 110, 20, 0.35) 100%
+        105deg,
+        rgba(0, 20, 30, 0.38) 0%,
+        rgba(0, 40, 56, 0.30) 30%,
+        rgba(140, 65, 8, 0.45) 62%,
+        rgba(205, 98, 8, 0.62) 100%
       );
     pointer-events: none;
   }
